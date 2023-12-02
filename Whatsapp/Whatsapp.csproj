@@ -20,7 +20,7 @@
     <Content Include="Database\Images\whatsapp-icon-design_23-2147900927.avif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Database\Images\—Pngtree—contemporary authentic 3d renderings of_8832124.jpg">
+    <Content Include="Database\—Pngtree—contemporary authentic 3d renderings of_8832124.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

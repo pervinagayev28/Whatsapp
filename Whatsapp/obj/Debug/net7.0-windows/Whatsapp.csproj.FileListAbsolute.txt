@@ -26,7 +26,6 @@ C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Micros
 C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\Whatsapp.csproj.AssemblyReference.cache
 C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\Whatsapp_Content.g.cs
 C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\Whatsapp.csproj.CopyComplete
-C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Database\Images\—Pngtree—contemporary authentic 3d renderings of_8832124.jpg
 C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\App.baml
 C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\Views\ViewPages\ViewRegstration.g.cs
 C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\Views\ViewPages\ViewRegstration.baml
@@ -76,3 +75,6 @@ C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Humani
 C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Microsoft.Extensions.DependencyModel.dll
 C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Mono.TextTemplating.dll
+C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Database\Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg
+C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Database\Images\whatsapp-icon-design_23-2147900927.avif
+C:\Users\user\OneDrive\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Database\—Pngtree—contemporary authentic 3d renderings of_8832124.jpg

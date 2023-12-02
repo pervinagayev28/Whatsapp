@@ -11,7 +11,7 @@
   Title="ViewConfirmationCode">
     <Border CornerRadius="100" >
         <Border.Background>
-            <ImageBrush  ImageSource="\Database\Images\—Pngtree—contemporary authentic 3d renderings of_8832124.jpg"/>
+            <ImageBrush  ImageSource="https://turboazimages.blob.core.windows.net/myimages/—Pngtree—contemporary authentic 3d renderings of_8832124.jpg"/>
         </Border.Background>
         <Grid>
             <Button Margin="40,40"  HorizontalAlignment="Left" VerticalAlignment="Top" 

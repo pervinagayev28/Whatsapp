@@ -4,14 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Whatsapp.Views.ViewPages"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="450" d:DesignWidth="800"
       x:Name="page"
       Title="SuccessfulLogin">
     <Border CornerRadius="100" >
         <Border.Background>
-            <ImageBrush  ImageSource="\Database\Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg"/>
+            <ImageBrush  ImageSource="https://turboazimages.blob.core.windows.net/myimages/blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg"/>
         </Border.Background>
 
 
