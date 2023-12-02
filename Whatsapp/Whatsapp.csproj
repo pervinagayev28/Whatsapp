@@ -8,10 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Database\Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg" />
+    <None Remove="Database\Images\whatsapp-icon-design_23-2147900927.avif" />
     <None Remove="Database\Images\—Pngtree—contemporary authentic 3d renderings of_8832124.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Database\Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\Images\whatsapp-icon-design_23-2147900927.avif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Database\Images\—Pngtree—contemporary authentic 3d renderings of_8832124.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

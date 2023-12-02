@@ -11,7 +11,7 @@
       Title="SuccessfulLogin">
     <Border CornerRadius="100" >
         <Border.Background>
-            <ImageBrush  ImageSource="C:\Users\user\OneDrive\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg"/>
+            <ImageBrush  ImageSource="\Database\Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg"/>
         </Border.Background>
 
 
