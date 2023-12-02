@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\ViewPages\SuccessfulLogin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ViewPages\ViewConfrimationCode.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ViewPages\ViewEntry.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ViewPages\ViewNewPassword.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ViewPages\ViewRegstration.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\ViewPages\SuccessfulLogin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ViewPages\ViewConfrimationCode.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ViewPages\ViewEntry.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ViewPages\ViewNewPassword.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ViewPages\ViewRegstration.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ViewWindows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
