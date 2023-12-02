@@ -25,7 +25,7 @@ public partial class MyChatingAppContext : DbContext
     //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     //    => optionsBuilder.UseSqlServer("Server=DESKTOP-47DGCU6\\SQL;Database=MyChatingApp;User Id=MySql;Password=pervina9266_1;TrustServerCertificate=True;");
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    => optionsBuilder.UseSqlServer("Server=tcp:47dgcu6.database.windows.net,1433;Initial Catalog=MyChatingApp;Persist Security Info=False;User ID=MySql;Password=pervina_9266_1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+    => optionsBuilder.UseSqlServer("Server=tcp:47dgcu6.database.windows.net,1433;Initial Catalog=MyChatingApp;Persist Security Info=False;User ID=MySql;Password=pervina9266_1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<MessagesTb>(entity =>
