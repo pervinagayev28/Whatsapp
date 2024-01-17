@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Whatsapp.Commands;
+using Whatsapp.DbContexts;
 using Whatsapp.Views.ViewPages;
 
 namespace Whatsapp.ViewModels.ViewModelsPage
@@ -22,7 +25,10 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         {
             
             var page = new SuccessfulLogin();
-            page.DataContext = new ViewModelSuccsessEntryed(((PasswordBox)((Page)obj).FindName("GmailTextBox")).Password);
+            Log.Information("*********************************** enter to login ***********************************");
+
+            page.DataContext = new ViewModelSuccsessEntryed(((PasswordBox)((Page)obj).FindName("GmailTextBox")).Password
+                            ,App._serviceProvider?.GetRequiredService<MyChatingAppContext>());
            ((Page)obj).NavigationService.Navigate(page);
         }
     }
