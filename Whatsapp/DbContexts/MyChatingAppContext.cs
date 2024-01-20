@@ -45,7 +45,6 @@ public partial class MyChatingAppContext : DbContext
             .MinimumLevel.Debug()
             .CreateLogger();
 
-        Log.Information("Entity Framework Core loglama başladı.");
 
 //        optionsBuilder.UseSqlServer("Server=pervin.database.windows.net;Initial Catalog=chatapp;Persist Security Info=False;User ID=agayev;Password=pervina9266_1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 //optionsBuilder.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddSerilog().SetMinimumLevel(LogLevel.Debug)));
