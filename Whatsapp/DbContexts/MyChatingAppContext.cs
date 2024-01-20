@@ -27,30 +27,28 @@ public partial class MyChatingAppContext : DbContext
     public virtual DbSet<UsersTb> UsersTbs { get; set; }
 
     //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //    => optionsBuilder.UseSqlServer("Server=DESKTOP-47DGCU6\\SQL;Database=MyChatingApp;User Id=MySql;Password=pervina9266_1;TrustServerCertificate=True;");
+        //=> optionsBuilder.UseSqlServer("Server=DESKTOP-47DGCU6\\SQL;Database=MyChatingApp;User Id=MySql;Password=pervina9266_1;TrustServerCertificate=True;");
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        optionsBuilder.UseSqlServer("Server=DESKTOP-47DGCU6\\SQL;Database=MyChatingApp;User Id=MySql;Password=pervina9266_1;TrustServerCertificate=True;");
         string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         string logFolderPath = Path.Combine(desktopPath, "Logs");
         string logFilePath = Path.Combine(logFolderPath, "Log.txt");
 
-        // Klasörü oluştur
         if (!Directory.Exists(logFolderPath))
         {
             Directory.CreateDirectory(logFolderPath);
         }
 
-        // Log dosyasını oluştur
         Log.Logger = new LoggerConfiguration()
             .WriteTo.File(logFilePath, rollingInterval: RollingInterval.Day)
             .MinimumLevel.Debug()
             .CreateLogger();
 
-        // Loglama başlangıcı
         Log.Information("Entity Framework Core loglama başladı.");
 
-        optionsBuilder.UseSqlServer("Server=pervin.database.windows.net;Initial Catalog=chatapp;Persist Security Info=False;User ID=agayev;Password=pervina9266_1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-optionsBuilder.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddSerilog().SetMinimumLevel(LogLevel.Debug)));
+//        optionsBuilder.UseSqlServer("Server=pervin.database.windows.net;Initial Catalog=chatapp;Persist Security Info=False;User ID=agayev;Password=pervina9266_1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+//optionsBuilder.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddSerilog().SetMinimumLevel(LogLevel.Debug)));
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
