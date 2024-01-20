@@ -176,3 +176,4 @@ C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Microsoft.AspNe
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Serilog.Extensions.Logging.dll
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\VG.Serilog.Sinks.EntityFrameworkCore.dll
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\fon.jpg

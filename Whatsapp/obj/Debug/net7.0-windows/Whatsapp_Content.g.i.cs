@@ -12,5 +12,6 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/images/whatsapp-icon-design_23-2147900927.avif")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/%e2%80%94pngtree%e2%80%94contemporary%20authentic%203d%20renderings%20of" +
     "_8832124.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/fon.jpg")]
 
 

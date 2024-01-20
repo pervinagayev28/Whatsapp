@@ -11,6 +11,7 @@
     <None Remove="Database\Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg" />
     <None Remove="Database\Images\whatsapp-icon-design_23-2147900927.avif" />
     <None Remove="Database\Images\—Pngtree—contemporary authentic 3d renderings of_8832124.jpg" />
+    <None Remove="Images\fon.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +22,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Database\—Pngtree—contemporary authentic 3d renderings of_8832124.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\fon.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -41,6 +45,12 @@
 
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

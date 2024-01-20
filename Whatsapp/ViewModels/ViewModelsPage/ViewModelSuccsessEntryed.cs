@@ -71,15 +71,16 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         {
             foreach (var item in Users)
             {
-                var result = from m in context.MessagesTbs
+                var result = await(from m in context.MessagesTbs
                              join fromUser in context.UsersTbs on m.UserId equals fromUser.Id
                              join toUser in context.UsersTbs on m.ToId equals toUser.Id
                              where fromUser.Id == User.Id && toUser.Id == item.Id || fromUser.Id == item.Id && toUser.Id == User.Id
-                             select new
-                             {
-                                 m.Message,
-                             };
-                item.LastMessage = (await result.ToListAsync()).Last().Message;
+                             orderby m.Date descending
+                             select m.Message).FirstOrDefaultAsync();
+                //var temp = await result.ToListAsync();
+                //var tempp = temp.Last();
+
+                item.LastMessage =result;
             }
         }
 
