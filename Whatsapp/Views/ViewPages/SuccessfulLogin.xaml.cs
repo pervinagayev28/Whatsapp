@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Whatsapp.ViewModels.ViewModelsPage;
 
 namespace Whatsapp.Views.ViewPages
@@ -23,16 +24,17 @@ namespace Whatsapp.Views.ViewPages
         public SuccessfulLogin()
         {
             InitializeComponent();
-
+         
         }
 
+      
 
-
+      
         public void selected(object sender, RoutedEventArgs e)
         {
-          
-            btn.CommandParameter = list.SelectedIndex;
-            btn.Command.Execute(list.SelectedIndex);
+
+            btn.CommandParameter = AllList;
+            btn.Command.Execute(AllList);
 
         }
     }

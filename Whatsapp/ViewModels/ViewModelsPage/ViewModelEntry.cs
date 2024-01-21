@@ -27,8 +27,10 @@ namespace Whatsapp.ViewModels.ViewModelsPage
             var page = new SuccessfulLogin();
             Log.Information("*********************************** enter to login ***********************************");
 
+            //page.DataContext = new ViewModelSuccsessEntryed(((PasswordBox)((Page)obj).FindName("GmailTextBox")).Password
+                            //,App._serviceProvider?.GetRequiredService<MyChatingAppContext>());
             page.DataContext = new ViewModelSuccsessEntryed(((PasswordBox)((Page)obj).FindName("GmailTextBox")).Password
-                            ,App._serviceProvider?.GetRequiredService<MyChatingAppContext>());
+                            ,new MyChatingAppContext());
            ((Page)obj).NavigationService.Navigate(page);
         }
     }

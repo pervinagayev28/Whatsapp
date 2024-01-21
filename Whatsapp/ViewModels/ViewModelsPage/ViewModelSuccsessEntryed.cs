@@ -28,12 +28,14 @@ namespace Whatsapp.ViewModels.ViewModelsPage
     class ViewModelSuccsessEntryed : ServiceINotifyPropertyChanged
     {
         private DispatcherTimer timer;
-        private readonly SemaphoreSlim semaphoreSlim = new SemaphoreSlim(1, 1);
+        private static SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
         //Timer timer;
+        Grid grid;
         public ICommand? SelectedChatUser { get; set; }
         public ICommand? SendMessageCommand { get; set; }
         public ICommand? LogOutCommand { get; set; }
         public UsersTb? User { get; set; }
+        private static int tempId;
         public ObservableCollection<UsersTb> Users { get; set; } = new();
         public ObservableCollection<MessagesTb> Messages { get => messages; set { messages = value; OnPropertyChanged(); } }
 
@@ -54,34 +56,32 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         private async void start(string Gmail)
         {
             User = await context.UsersTbs.FirstOrDefaultAsync(u => u.Gmail == Gmail)!;
-            await GetLastMessages();
             await GetUsers();
-           
+            await GetLastMessages();
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += async (sender, e) => await TrickerDataBase();
-            timer.Start();
-
+            //timer.Start();
             //timer = new Timer(async state => await TrickerDataBase(), null, 0, 1000);
 
 
         }
         private async Task GetLastMessages()
         {
+            timer?.Stop();
             foreach (var item in Users)
             {
-                var result = await(from m in context.MessagesTbs
-                             join fromUser in context.UsersTbs on m.UserId equals fromUser.Id
-                             join toUser in context.UsersTbs on m.ToId equals toUser.Id
-                             where fromUser.Id == User.Id && toUser.Id == item.Id || fromUser.Id == item.Id && toUser.Id == User.Id
-                             orderby m.Date descending
-                             select m.Message).FirstOrDefaultAsync();
-                //var temp = await result.ToListAsync();
-                //var tempp = temp.Last();
+                var result = await (from m in context.MessagesTbs
+                                    join fromUser in context.UsersTbs on m.UserId equals fromUser.Id
+                                    join toUser in context.UsersTbs on m.ToId equals toUser.Id
+                                    where fromUser.Id == User.Id && toUser.Id == item.Id || fromUser.Id == item.Id && toUser.Id == User.Id
+                                    orderby m.Date descending
+                                    select m.Message).FirstOrDefaultAsync();
 
-                item.LastMessage =result;
+                item.LastMessage = result;
             }
+            timer?.Start();
         }
 
         private async Task GetUsers()
@@ -112,10 +112,10 @@ namespace Whatsapp.ViewModels.ViewModelsPage
             ((Page)obj).NavigationService.Navigate(page);
         }
 
+
         public async Task TrickerDataBase()
         {
-            //File.AppendAllText("test.txt", Thread.CurrentThread.ManagedThreadId.ToString() + Environment.NewLine);
-                messages.Clear();
+            //messages.Clear();
             var query = from m in context.MessagesTbs
                         join fromUser in context.UsersTbs on m.UserId equals fromUser.Id
                         join toUser in context.UsersTbs on m.ToId equals toUser.Id
@@ -126,29 +126,59 @@ namespace Whatsapp.ViewModels.ViewModelsPage
                             m.Message,
                             m.Date
                         };
-            ;
+
             var result = await query.ToListAsync();
-            try
+
+            if (tempId == currentSelectedUserId)
             {
+                if (Messages.Count() != result.Count())
+                {
+                    Messages.Add(new MessagesTb() { Message = result.Last().Message + "  " + result.Last().Date.ToString("HH:mm"), RightOrLeft = result.Last().RightOrLeft });
+                    ((ListView)grid.FindName("list2")).ScrollIntoView(Messages.Last());
+                }
+            }
+            else
+            {
+                Messages.Clear();
+
                 foreach (var m in result)
                     Messages.Add(new MessagesTb() { Message = m.Message + "  " + m.Date.ToString("HH:mm"), RightOrLeft = m.RightOrLeft });
-                await GetLastMessages();
+                ((ListView)grid.FindName("list2")).
+                        ScrollIntoView(((ListView)grid.FindName("list2")).
+                        Items[((ListView)grid.FindName("list2")).Items.Count - 1]);
             }
-            finally { }
+
+            await GetLastMessages();
+
+            tempId = currentSelectedUserId;
         }
 
 
         private async void ExecuteSendMessageCommand(object obj)
         {
             timer.Stop();
+            try
+            {
+                await semaphore.WaitAsync();
                 await context.MessagesTbs.AddAsync(new MessagesTb() { UserId = User.Id, Message = ((TextBox)obj).Text, Date = DateTime.Now, ToId = currentSelectedUserId });
                 await context.SaveChangesAsync();
+            }
+            finally
+            {
+                semaphore.Release();
+            }
             timer.Start();
             ((TextBox)obj).Text = "";
         }
 
-        private void ExecuteSelectedChatUser(object obj) =>
-            currentSelectedUserId = Users[(int)obj].Id;
+        private void ExecuteSelectedChatUser(object obj)
+        {
+            grid = (Grid)obj;
+            timer?.Stop();
+            timer?.Start();
+            currentSelectedUserId = Users[(int)((ListView)grid.FindName("list")).SelectedIndex].Id;
+        }
+
 
     }
 }

@@ -17,7 +17,7 @@
 
 
 
-        <Grid >
+        <Grid x:Name="AllList">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.3*"/>
                 <ColumnDefinition Width="0.55*"/>
@@ -129,8 +129,8 @@
                     <RowDefinition Height="0.4*"/>
                 </Grid.RowDefinitions>
 
-                    <ListView x:Name="list2"  Background="Gray" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding Messages}" Width="400" >
-                        <ListView.ItemsPanel>
+                <ListView  x:Name="list2"  Background="Gray" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding Messages}" Width="400" >
+                    <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel Orientation="Vertical"/>
                             </ItemsPanelTemplate>
