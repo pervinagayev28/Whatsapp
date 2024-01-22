@@ -11,10 +11,19 @@
     <None Remove="Database\Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg" />
     <None Remove="Database\Images\whatsapp-icon-design_23-2147900927.avif" />
     <None Remove="Database\Images\—Pngtree—contemporary authentic 3d renderings of_8832124.jpg" />
+    <None Remove="Images\background.jpg" />
+    <None Remove="Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg" />
     <None Remove="Images\fon.jpg" />
+    <None Remove="Images\images.jpeg" />
+	<None Remove="Images\**" />
+	<Content Include="Images\**" />
   </ItemGroup>
 
   <ItemGroup>
+	  <Content Update="Images\**">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  <BuildAction>Content</BuildAction>
+	  </Content>
     <Content Include="Database\Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -24,7 +33,16 @@
     <Content Include="Database\—Pngtree—contemporary authentic 3d renderings of_8832124.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\background.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\fon.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\images.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -48,9 +66,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </None>
+    <None Include="bin\Debug\net7.0-windows\appsettings.json" />
   </ItemGroup>
 
 </Project>

@@ -24,17 +24,19 @@ namespace Whatsapp.Views.ViewPages
         public SuccessfulLogin()
         {
             InitializeComponent();
-         
+
         }
 
-      
 
-      
+
+
         public void selected(object sender, RoutedEventArgs e)
         {
-
-            btn.CommandParameter = AllList;
-            btn.Command.Execute(AllList);
+            if (list.SelectedIndex >= 0)
+            {
+                SelectedUserBtn.CommandParameter = AllList;
+                SelectedUserBtn.Command.Execute(AllList);
+            }
 
         }
     }

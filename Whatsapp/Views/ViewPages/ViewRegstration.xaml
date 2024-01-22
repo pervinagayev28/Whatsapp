@@ -5,12 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Whatsapp.Views.ViewPages"
       mc:Ignorable="d" 
+      Name="page"
        Background="Transparent"
       xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
       d:DesignHeight="700" d:DesignWidth="1100"
       Title="ViewRegstration">
 
-    <Border CornerRadius="100" >
+    <Border x:Name="border" CornerRadius="100" >
         <Border.Background>
             <ImageBrush  ImageSource="https://turboazimages.blob.core.windows.net/myimages/—Pngtree—contemporary authentic 3d renderings of_8832124.jpg"/>
         </Border.Background>
@@ -30,15 +31,17 @@ IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource 
   Kind="Close" />
             </Button>
 
-            <StackPanel  Opacity="50" VerticalAlignment="Center" Height="500" Width="400"  Background="Transparent" Margin="350,104,350,0">
+            <StackPanel x:Name="stackpanel"  Opacity="50" VerticalAlignment="Center" Height="500" Width="400"  Background="Transparent" Margin="350,104,350,0">
 
-                <PasswordBox Style="{StaticResource MaterialDesignFilledPasswordBox}"
+                <PasswordBox  x:Name="gmail" Style="{StaticResource MaterialDesignFilledPasswordBox}"
                                     FontSize="30" VerticalContentAlignment="Center"  BorderBrush="White" Foreground="Green" Padding="5" Height="80" Width="300"
                                     materialDesign:HintAssist.Hint="Gmail"
                                     materialDesign:HintAssist.Foreground="Green"/>
 
 
                 <Button Margin="0,20,0,0" Height="80" FontSize="30" Width="300" BorderThickness="0" Background="red" 
+                        Command="{Binding SendCodeCommand}"
+                        CommandParameter="{Binding ElementName=page}"
                         Style="{StaticResource MaterialDesignRaisedButton}"
                         materialDesign:ButtonProgressAssist.Value="-1"
                         materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"

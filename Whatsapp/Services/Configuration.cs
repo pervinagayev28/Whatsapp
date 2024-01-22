@@ -13,8 +13,8 @@ namespace Whatsapp.Services
 
         public static string GetValue(string Key, string Value)
         {
-            var builder = new ConfigurationBuilder()
-                .AddJsonFile(@"C:\Users\user\Desktop\Whatsapp\Whatsapp\appsettings.json");
+            var builder = new ConfigurationBuilder().
+                  AddJsonFile("appsettings.json");
             return builder.Build().GetSection(Key)[Value];
         }
 

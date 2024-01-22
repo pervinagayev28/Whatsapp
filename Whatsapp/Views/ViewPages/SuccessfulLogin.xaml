@@ -17,7 +17,7 @@
 
 
 
-        <Grid x:Name="AllList">
+        <Grid x:Name="AllList" Margin="7,4,-7,-4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.3*"/>
                 <ColumnDefinition Width="0.55*"/>
@@ -25,15 +25,19 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.15*"/>
+                <RowDefinition Height="0.20*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Border Height="50" Width="50" CornerRadius="50">
+            <StackPanel Margin="10,20,0,0" HorizontalAlignment="Center" Width="150">
+                
+            <Border Height="50" Width="50" CornerRadius="50" BorderBrush="Black" BorderThickness="2">
                 <Border.Background>
                     <ImageBrush ImageSource="{Binding User.ImagePath}"/>
                 </Border.Background>
             </Border>
+                <Label  Content="{Binding User.Gmail}" HorizontalAlignment="Center"/>
+            </StackPanel>
 
 
             <materialDesign:PackIcon Kind="Accounts" Grid.Column="1" Height="50" Width="50" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -41,6 +45,7 @@
 
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1">
 
+                <!--Log out Button-->
                 <Button 
                     Command="{Binding LogOutCommand}" CommandParameter="{Binding ElementName=page}"
        Width="50"
@@ -54,7 +59,10 @@
                     <materialDesign:PackIcon Height="20" Width="20" Kind="Logout" />
                 </Button>
 
+                <!--My Profile Button-->
                 <Button 
+                    Command="{Binding ProfileCommand}"
+                    CommandParameter="{Binding ElementName=page}"
                     Margin="0,20,0,0"
                     Width="50"
                     Height="50"
@@ -66,9 +74,30 @@
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
                     <materialDesign:PackIcon  Kind="Person" />
                 </Button>
+                <Button Visibility="Hidden" Height="0" Width="0" Name="SelectedUserBtn" Command="{Binding SelectedChatUser}"/>
 
-                <Button Command="{Binding SelectedChatUser}"
-                        Name="btn"
+                <!--Only chat Users Buttin-->
+                <Button 
+      Command="{Binding OnlyChatUsersCommand}"
+                    CommandParameter="{Binding ElementName=list,Path=Items.Count}"
+          Name="OnlyChatUsers"
+          Margin="0,20,0,0"
+          Width="50"
+          Height="50"
+          Background="Black"
+          BorderBrush="red"
+          Style="{StaticResource MaterialDesignRaisedDarkButton}"
+          materialDesign:ButtonAssist.CornerRadius="25"            
+          ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
+          IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
+                    <materialDesign:PackIcon  Kind="Chat" />
+                </Button>
+
+                <!--All Users Button-->
+                <Button 
+                    Command="{Binding AllUsersCommand}"
+                    CommandParameter="{Binding ElementName=AllList}"
+                        Name="AllUsers"
                         Margin="0,20,0,0"
                         Width="50"
                         Height="50"
@@ -78,7 +107,7 @@
                         materialDesign:ButtonAssist.CornerRadius="25"            
                         ToolTip="MaterialDesignRaisedDarkButton with Round Corners"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
-                    <materialDesign:PackIcon  Kind="AccountGroup" />
+                    <materialDesign:PackIcon  Kind="People" />
                 </Button>
 
 
@@ -131,29 +160,29 @@
 
                 <ListView  x:Name="list2"  Background="Gray" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding Messages}" Width="400" >
                     <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Vertical"/>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Label Width="390" FontStyle="Italic" FontWeight="Bold"  Foreground="Black">
-                                    <Label.Style>
-                                        <Style TargetType="Label">
-                                            <Setter Property="Content" Value="{Binding Message}"/>
-                                            <Setter Property="HorizontalContentAlignment" Value="Right"/>
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RightOrLeft}" Value="0">
-                                                    <Setter Property="HorizontalContentAlignment" Value="Left"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Label.Style>
-                                </Label>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Label Width="390" FontStyle="Italic" FontWeight="Bold"  Foreground="Black">
+                                <Label.Style>
+                                    <Style TargetType="Label">
+                                        <Setter Property="Content" Value="{Binding Message}"/>
+                                        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding RightOrLeft}" Value="0">
+                                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Label.Style>
+                            </Label>
 
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
                 <Grid Grid.Row="1" Margin="30,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>

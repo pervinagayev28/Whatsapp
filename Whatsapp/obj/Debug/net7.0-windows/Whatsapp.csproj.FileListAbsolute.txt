@@ -177,3 +177,10 @@ C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Newtonsoft.Json
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Serilog.Extensions.Logging.dll
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\VG.Serilog.Sinks.EntityFrameworkCore.dll
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\fon.jpg
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\images.jpeg
+C:\Users\user\Desktop\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\Views\ViewWindows\WindowProfile.g.cs
+C:\Users\user\Desktop\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\Views\ViewWindows\WindowProfile.baml
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\background.jpg
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\6.-Black-Boy-Magic-Afro.jpg
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\download (1).jpeg

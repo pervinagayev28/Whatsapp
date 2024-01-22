@@ -22,6 +22,9 @@
     <Compile Update="Views\ViewPages\ViewRegstration.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ViewWindows\WindowProfile.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\ViewPages\SuccessfulLogin.xaml">
@@ -40,6 +43,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ViewWindows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ViewWindows\WindowProfile.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

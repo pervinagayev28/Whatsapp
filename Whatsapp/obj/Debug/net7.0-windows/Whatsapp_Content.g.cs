@@ -8,10 +8,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/6.-black-boy-magic-afro.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/background.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/download%20(1).jpeg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/fon.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/images.jpeg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/images/blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/images/whatsapp-icon-design_23-2147900927.avif")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/%e2%80%94pngtree%e2%80%94contemporary%20authentic%203d%20renderings%20of" +
     "_8832124.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/background.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/fon.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/images.jpeg")]
 
 

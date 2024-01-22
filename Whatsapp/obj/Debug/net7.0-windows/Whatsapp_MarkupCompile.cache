@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\user\Desktop\Whatsapp\Whatsapp\App.xaml
-6-1862521923
-41856566877
-171615301721
+7-1606151192
+13206157820
+23-836852375
 247-1953644782
-Views\ViewPages\SuccessfulLogin.xaml;Views\ViewPages\ViewConfrimationCode.xaml;Views\ViewPages\ViewEntry.xaml;Views\ViewPages\ViewNewPassword.xaml;Views\ViewPages\ViewRegstration.xaml;Views\ViewWindows\MainWindow.xaml;
+Views\ViewPages\SuccessfulLogin.xaml;Views\ViewPages\ViewConfrimationCode.xaml;Views\ViewPages\ViewEntry.xaml;Views\ViewPages\ViewNewPassword.xaml;Views\ViewPages\ViewRegstration.xaml;Views\ViewWindows\MainWindow.xaml;Views\ViewWindows\WindowProfile.xaml;
 
 False
 

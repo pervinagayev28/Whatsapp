@@ -13,7 +13,8 @@
 
     <Border CornerRadius="100" >
         <Border.Background>
-            <ImageBrush  ImageSource="https://turboazimages.blob.core.windows.net/myimages/—Pngtree—contemporary authentic 3d renderings of_8832124.jpg"/>
+            <!--<ImageBrush  ImageSource="https://turboazimages.blob.core.windows.net/myimages/—Pngtree—contemporary authentic 3d renderings of_8832124.jpg"/>-->
+            <ImageBrush  ImageSource="\Images\background.jpg"/>
         </Border.Background>
         <Grid>
             <Button Margin="40,40"  HorizontalAlignment="Left" VerticalAlignment="Top" 
@@ -71,6 +72,8 @@ IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource 
             <Grid
   Width="124">
                 <Button
+                    Command="{Binding RegistrationCommand}"
+                    CommandParameter="{Binding ElementName=page}"
                     Margin="0,30,0,0"
     Style="{StaticResource MaterialDesignFlatButton}"
     materialDesign:ButtonProgressAssist.Value="-1"
