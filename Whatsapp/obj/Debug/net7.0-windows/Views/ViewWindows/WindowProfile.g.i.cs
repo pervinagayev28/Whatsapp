@@ -80,7 +80,7 @@ namespace Whatsapp.Views.ViewWindows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Whatsapp;V1.0.0.0;component/views/viewwindows/windowprofile.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Whatsapp;component/views/viewwindows/windowprofile.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\ViewWindows\WindowProfile.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

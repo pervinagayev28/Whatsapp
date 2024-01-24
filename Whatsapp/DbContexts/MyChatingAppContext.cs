@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Serilog;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Whatsapp.Models;
-using System.IO;
-using Serilog.Extensions.Logging;
 
 namespace Whatsapp.DbContexts;
 
@@ -22,33 +19,15 @@ public partial class MyChatingAppContext : DbContext
 
     public virtual DbSet<MessagesTb> MessagesTbs { get; set; }
 
-    public virtual DbSet<UserConnectionsTb> UserConnectionsTbs { get; set; }
-
     public virtual DbSet<UsersTb> UsersTbs { get; set; }
 
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //=> optionsBuilder.UseSqlServer("Server=DESKTOP-47DGCU6\\SQL;Database=MyChatingApp;User Id=MySql;Password=pervina9266_1;TrustServerCertificate=True;");
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=DESKTOP-47DGCU6\\SQL;Database=MyChatingApp;User Id=MySql;Password=pervina9266_1;TrustServerCertificate=True;");
-        string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        string logFolderPath = Path.Combine(desktopPath, "Logs");
-        string logFilePath = Path.Combine(logFolderPath, "Log.txt");
-
-        if (!Directory.Exists(logFolderPath))
-        {
-            Directory.CreateDirectory(logFolderPath);
-        }
-
-        Log.Logger = new LoggerConfiguration()
-            .WriteTo.File(logFilePath, rollingInterval: RollingInterval.Day)
-            .MinimumLevel.Debug()
-            .CreateLogger();
-
-
-//        optionsBuilder.UseSqlServer("Server=pervin.database.windows.net;Initial Catalog=chatapp;Persist Security Info=False;User ID=agayev;Password=pervina9266_1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-//optionsBuilder.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddSerilog().SetMinimumLevel(LogLevel.Debug)));
+        optionsBuilder.UseSqlServer("Server=DESKTOP-47DGCU6\\SQL;Database=MyChatingAppUpdated;User Id=MySql;Password=pervina9266_1;TrustServerCertificate=True;");
+        optionsBuilder
+       .ConfigureWarnings(warnings => warnings.Ignore(CoreEventId.NavigationBaseIncludeIgnored));
     }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<MessagesTb>(entity =>
@@ -57,16 +36,26 @@ public partial class MyChatingAppContext : DbContext
 
             entity.Property(e => e.Date).HasColumnType("datetime");
             entity.Property(e => e.Message).HasMaxLength(50);
-        });
 
-        modelBuilder.Entity<UserConnectionsTb>(entity =>
-        {
-            entity.ToTable("UserConnectionsTb");
+            entity.HasOne(d => d.To).WithMany(p => p.MessagesTo)
+            .HasForeignKey(d => d.ToId)
+            .HasConstraintName("CK_ToId_To_UserId");
+
+
+            entity.HasOne(d => d.User).WithMany(p => p.MessagesFrom)
+              .HasForeignKey(d => d.FromId)
+              .HasConstraintName("CK_FromId_To_UserId");
+
+
         });
 
         modelBuilder.Entity<UsersTb>(entity =>
         {
             entity.ToTable("UsersTb");
+
+            entity.HasIndex(e => e.Gmail, "Uniqe_Gmail_Constraint").IsUnique();
+
+            entity.HasIndex(e => e.Password, "Uniqe_Password_Constraint").IsUnique();
 
             entity.Property(e => e.Gmail).HasMaxLength(50);
             entity.Property(e => e.ImagePath)

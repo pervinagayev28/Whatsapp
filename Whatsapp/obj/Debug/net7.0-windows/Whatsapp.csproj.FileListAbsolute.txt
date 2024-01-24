@@ -184,3 +184,9 @@ C:\Users\user\Desktop\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\Views\ViewWindo
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\background.jpg
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\6.-Black-Boy-Magic-Afro.jpg
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\download (1).jpeg
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\download.jpeg
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\MyPhoto.jpg
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\photo-little-brunet-boy-wear-260nw-2030792027.webp
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\3135715.png
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\Your profile.png
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\baku-bus-red-700x460.webp

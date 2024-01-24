@@ -1,0 +1,704 @@
+TempId: 3
+UserId: 3  MessageCount: 2  ResultCount: 3
+TempId: 4
+UserId: 4  MessageCount: 2  ResultCount: 3
+TempId: 4
+UserId: 4  MessageCount: 3  ResultCount: 4
+TempId: 4
+UserId: 4  MessageCount: 4  ResultCount: 5
+TempId: 4
+UserId: 4  MessageCount: 5  ResultCount: 8
+TempId: 4
+UserId: 4  MessageCount: 8  ResultCount: 9
+TempId: 4
+UserId: 4  MessageCount: 9  ResultCount: 10
+TempId: 4
+UserId: 4  MessageCount: 10  ResultCount: 12
+TempId: 4
+UserId: 4  MessageCount: 11  ResultCount: 13
+TempId: 4
+UserId: 4  MessageCount: 12  ResultCount: 14
+TempId: 4
+UserId: 4  MessageCount: 13  ResultCount: 16
+TempId: 4
+UserId: 4  MessageCount: 14  ResultCount: 17
+TempId: 4
+UserId: 4  MessageCount: 15  ResultCount: 17
+TempId: 3
+UserId: 3  MessageCount: 3  ResultCount: 6
+TempId: 3
+UserId: 3  MessageCount: 4  ResultCount: 7
+TempId: 3
+UserId: 3  MessageCount: 5  ResultCount: 7
+TempId: 3
+UserId: 3  MessageCount: 6  ResultCount: 7
+TempId: 3
+UserId: 3  MessageCount: 7  ResultCount: 9
+TempId: 3
+UserId: 3  MessageCount: 8  ResultCount: 10
+TempId: 3
+UserId: 3  MessageCount: 9  ResultCount: 11
+TempId: 3
+UserId: 3  MessageCount: 10  ResultCount: 11
+TempId: 3
+UserId: 3  MessageCount: 11  ResultCount: 15
+TempId: 3
+UserId: 3  MessageCount: 12  ResultCount: 15
+TempId: 3
+UserId: 3  MessageCount: 13  ResultCount: 15
+TempId: 3
+UserId: 3  MessageCount: 14  ResultCount: 17
+TempId: 3
+UserId: 3  MessageCount: 15  ResultCount: 18
+TempId: 3
+UserId: 3  MessageCount: 16  ResultCount: 19
+TempId: 3
+UserId: 3  MessageCount: 17  ResultCount: 20
+TempId: 3
+UserId: 3  MessageCount: 18  ResultCount: 25
+TempId: 3
+UserId: 3  MessageCount: 19  ResultCount: 26
+TempId: 3
+UserId: 3  MessageCount: 20  ResultCount: 27
+TempId: 3
+UserId: 3  MessageCount: 21  ResultCount: 28
+TempId: 3
+UserId: 3  MessageCount: 22  ResultCount: 28
+TempId: 3
+UserId: 3  MessageCount: 28  ResultCount: 29
+TempId: 3
+UserId: 3  MessageCount: 29  ResultCount: 34
+TempId: 3
+UserId: 3  MessageCount: 30  ResultCount: 34
+TempId: 3
+UserId: 3  MessageCount: 31  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 32  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 33  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 34  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 35  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 36  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 37  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 38  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 39  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 40  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 41  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 42  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 43  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 44  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 45  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 46  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 47  ResultCount: 48
+TempId: 3
+UserId: 3  MessageCount: 48  ResultCount: 67
+TempId: 3
+UserId: 3  MessageCount: 49  ResultCount: 67
+TempId: 3
+UserId: 3  MessageCount: 50  ResultCount: 67
+TempId: 3
+UserId: 3  MessageCount: 51  ResultCount: 67
+TempId: 3
+UserId: 3  MessageCount: 52  ResultCount: 67
+TempId: 3
+UserId: 3  MessageCount: 53  ResultCount: 67
+TempId: 3
+UserId: 3  MessageCount: 54  ResultCount: 67
+TempId: 4
+UserId: 4  MessageCount: 27  ResultCount: 35
+TempId: 4
+UserId: 4  MessageCount: 28  ResultCount: 35
+TempId: 4
+UserId: 4  MessageCount: 29  ResultCount: 35
+TempId: 4
+UserId: 4  MessageCount: 30  ResultCount: 35
+TempId: 4
+UserId: 4  MessageCount: 31  ResultCount: 35
+TempId: 4
+UserId: 4  MessageCount: 32  ResultCount: 35
+TempId: 4
+UserId: 4  MessageCount: 33  ResultCount: 35
+TempId: 4
+UserId: 4  MessageCount: 34  ResultCount: 35
+TempId: 4
+UserId: 4  MessageCount: 35  ResultCount: 45
+TempId: 4
+UserId: 4  MessageCount: 36  ResultCount: 45
+TempId: 3
+UserId: 3  MessageCount: 107  ResultCount: 116
+TempId: 3
+UserId: 3  MessageCount: 108  ResultCount: 116
+TempId: 3
+UserId: 3  MessageCount: 109  ResultCount: 116
+TempId: 3
+UserId: 3  MessageCount: 110  ResultCount: 116
+TempId: 3
+UserId: 3  MessageCount: 111  ResultCount: 116
+TempId: 3
+UserId: 3  MessageCount: 112  ResultCount: 116
+TempId: 3
+UserId: 3  MessageCount: 113  ResultCount: 116
+TempId: 3
+UserId: 3  MessageCount: 114  ResultCount: 116
+TempId: 3
+UserId: 3  MessageCount: 115  ResultCount: 116
+TempId: 3
+UserId: 3  MessageCount: 116  ResultCount: 125
+TempId: 3
+UserId: 3  MessageCount: 117  ResultCount: 125
+TempId: 3
+UserId: 3  MessageCount: 118  ResultCount: 125
+TempId: 3
+UserId: 3  MessageCount: 119  ResultCount: 125
+TempId: 3
+UserId: 3  MessageCount: 120  ResultCount: 125
+TempId: 3
+UserId: 3  MessageCount: 121  ResultCount: 125
+TempId: 3
+UserId: 3  MessageCount: 122  ResultCount: 125
+TempId: 3
+UserId: 3  MessageCount: 123  ResultCount: 125
+TempId: 4
+UserId: 4  MessageCount: 58  ResultCount: 73
+TempId: 4
+UserId: 4  MessageCount: 59  ResultCount: 73
+TempId: 4
+UserId: 4  MessageCount: 60  ResultCount: 78
+TempId: 3
+UserId: 3  MessageCount: 131  ResultCount: 138
+TempId: 4
+UserId: 4  MessageCount: 138  ResultCount: 81
+TempId: 4
+UserId: 4  MessageCount: 139  ResultCount: 81
+TempId: 4
+UserId: 4  MessageCount: 140  ResultCount: 81
+TempId: 3
+UserId: 3  MessageCount: 138  ResultCount: 141
+TempId: 3
+UserId: 3  MessageCount: 139  ResultCount: 145
+TempId: 3
+UserId: 3  MessageCount: 140  ResultCount: 150
+TempId: 3
+UserId: 3  MessageCount: 141  ResultCount: 154
+TempId: 3
+UserId: 3  MessageCount: 142  ResultCount: 158
+TempId: 3
+UserId: 3  MessageCount: 143  ResultCount: 160
+TempId: 4
+UserId: 4  MessageCount: 81  ResultCount: 83
+TempId: 4
+UserId: 4  MessageCount: 82  ResultCount: 87
+TempId: 4
+UserId: 4  MessageCount: 83  ResultCount: 90
+TempId: 4
+UserId: 4  MessageCount: 84  ResultCount: 95
+TempId: 4
+UserId: 4  MessageCount: 85  ResultCount: 98
+TempId: 3
+UserId: 3  MessageCount: 160  ResultCount: 165
+TempId: 3
+UserId: 3  MessageCount: 161  ResultCount: 169
+TempId: 3
+UserId: 3  MessageCount: 162  ResultCount: 172
+TempId: 3
+UserId: 3  MessageCount: 163  ResultCount: 175
+TempId: 3
+UserId: 3  MessageCount: 164  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 165  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 166  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 167  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 168  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 169  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 170  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 171  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 172  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 173  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 174  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 175  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 176  ResultCount: 178
+TempId: 3
+UserId: 3  MessageCount: 177  ResultCount: 178
+TempId: 4
+UserId: 4  MessageCount: 98  ResultCount: 101
+TempId: 4
+UserId: 4  MessageCount: 99  ResultCount: 103
+TempId: 4
+UserId: 4  MessageCount: 100  ResultCount: 103
+TempId: 4
+UserId: 4  MessageCount: 101  ResultCount: 108
+TempId: 4
+UserId: 4  MessageCount: 102  ResultCount: 111
+TempId: 4
+UserId: 4  MessageCount: 103  ResultCount: 113
+TempId: 3
+UserId: 3  MessageCount: 178  ResultCount: 183
+TempId: 3
+UserId: 3  MessageCount: 179  ResultCount: 187
+TempId: 3
+UserId: 3  MessageCount: 180  ResultCount: 187
+TempId: 3
+UserId: 3  MessageCount: 181  ResultCount: 187
+TempId: 3
+UserId: 3  MessageCount: 182  ResultCount: 187
+TempId: 3
+UserId: 3  MessageCount: 183  ResultCount: 187
+TempId: 3
+UserId: 3  MessageCount: 184  ResultCount: 187
+TempId: 3
+UserId: 3  MessageCount: 185  ResultCount: 187
+TempId: 3
+UserId: 3  MessageCount: 186  ResultCount: 187
+TempId: 3
+UserId: 3  MessageCount: 189  ResultCount: 190
+TempId: 3
+UserId: 3  MessageCount: 190  ResultCount: 194
+TempId: 3
+UserId: 3  MessageCount: 191  ResultCount: 198
+TempId: 3
+UserId: 3  MessageCount: 201  ResultCount: 205
+TempId: 3
+UserId: 3  MessageCount: 202  ResultCount: 211
+TempId: 3
+UserId: 3  MessageCount: 203  ResultCount: 212
+TempId: 3
+UserId: 3  MessageCount: 204  ResultCount: 212
+TempId: 3
+UserId: 3  MessageCount: 205  ResultCount: 212
+TempId: 3
+UserId: 3  MessageCount: 206  ResultCount: 212
+TempId: 4
+UserId: 4  MessageCount: 123  ResultCount: 127
+TempId: 4
+UserId: 4  MessageCount: 124  ResultCount: 132
+TempId: 4
+UserId: 4  MessageCount: 125  ResultCount: 133
+TempId: 4
+UserId: 4  MessageCount: 126  ResultCount: 133
+TempId: 4
+UserId: 4  MessageCount: 133  ResultCount: 135
+TempId: 4
+UserId: 4  MessageCount: 134  ResultCount: 139
+TempId: 4
+UserId: 4  MessageCount: 135  ResultCount: 142
+TempId: 4
+UserId: 4  MessageCount: 136  ResultCount: 145
+TempId: 4
+UserId: 4  MessageCount: 137  ResultCount: 149
+TempId: 3
+UserId: 3  MessageCount: 212  ResultCount: 214
+TempId: 3
+UserId: 3  MessageCount: 213  ResultCount: 218
+TempId: 3
+UserId: 3  MessageCount: 214  ResultCount: 219
+TempId: 3
+UserId: 3  MessageCount: 215  ResultCount: 220
+TempId: 3
+UserId: 3  MessageCount: 216  ResultCount: 224
+TempId: 3
+UserId: 3  MessageCount: 217  ResultCount: 228
+TempId: 3
+UserId: 3  MessageCount: 218  ResultCount: 232
+TempId: 3
+UserId: 3  MessageCount: 219  ResultCount: 236
+TempId: 3
+UserId: 3  MessageCount: 220  ResultCount: 240
+TempId: 3
+UserId: 3  MessageCount: 221  ResultCount: 243
+TempId: 3
+UserId: 3  MessageCount: 222  ResultCount: 246
+TempId: 3
+UserId: 3  MessageCount: 223  ResultCount: 250
+TempId: 4
+UserId: 4  MessageCount: 149  ResultCount: 150
+TempId: 4
+UserId: 4  MessageCount: 150  ResultCount: 153
+TempId: 4
+UserId: 4  MessageCount: 151  ResultCount: 157
+TempId: 4
+UserId: 4  MessageCount: 152  ResultCount: 161
+TempId: 4
+UserId: 4  MessageCount: 153  ResultCount: 165
+TempId: 4
+UserId: 4  MessageCount: 154  ResultCount: 169
+TempId: 4
+UserId: 4  MessageCount: 155  ResultCount: 172
+TempId: 4
+UserId: 4  MessageCount: 156  ResultCount: 172
+TempId: 4
+UserId: 4  MessageCount: 157  ResultCount: 172
+TempId: 4
+UserId: 4  MessageCount: 176  ResultCount: 182
+TempId: 4
+UserId: 4  MessageCount: 177  ResultCount: 186
+TempId: 4
+UserId: 4  MessageCount: 178  ResultCount: 189
+TempId: 4
+UserId: 4  MessageCount: 179  ResultCount: 194
+TempId: 3
+UserId: 3  MessageCount: 250  ResultCount: 255
+TempId: 3
+UserId: 3  MessageCount: 251  ResultCount: 259
+TempId: 3
+UserId: 3  MessageCount: 252  ResultCount: 261
+TempId: 3
+UserId: 3  MessageCount: 253  ResultCount: 266
+TempId: 4
+UserId: 4  MessageCount: 194  ResultCount: 197
+TempId: 4
+UserId: 4  MessageCount: 195  ResultCount: 202
+TempId: 4
+UserId: 4  MessageCount: 196  ResultCount: 205
+TempId: 4
+UserId: 4  MessageCount: 197  ResultCount: 205
+TempId: 4
+UserId: 4  MessageCount: 198  ResultCount: 206
+TempId: 4
+UserId: 4  MessageCount: 199  ResultCount: 212
+TempId: 4
+UserId: 4  MessageCount: 200  ResultCount: 218
+TempId: 3
+UserId: 3  MessageCount: 267  ResultCount: 273
+TempId: 3
+UserId: 3  MessageCount: 268  ResultCount: 276
+TempId: 3
+UserId: 3  MessageCount: 269  ResultCount: 279
+TempId: 4
+UserId: 4  MessageCount: 218  ResultCount: 225
+TempId: 4
+UserId: 4  MessageCount: 219  ResultCount: 228
+TempId: 4
+UserId: 4  MessageCount: 220  ResultCount: 231
+TempId: 4
+UserId: 4  MessageCount: 221  ResultCount: 232
+TempId: 4
+UserId: 4  MessageCount: 222  ResultCount: 232
+TempId: 4
+UserId: 4  MessageCount: 223  ResultCount: 232
+TempId: 4
+UserId: 4  MessageCount: 224  ResultCount: 232
+TempId: 4
+UserId: 4  MessageCount: 225  ResultCount: 232
+TempId: 4
+UserId: 4  MessageCount: 226  ResultCount: 232
+TempId: 4
+UserId: 4  MessageCount: 0  ResultCount: 232
+TempId: 4
+UserId: 4  MessageCount: 227  ResultCount: 232
+TempId: 4
+UserId: 4  MessageCount: 1  ResultCount: 233
+TempId: 4
+UserId: 4  MessageCount: 228  ResultCount: 233
+TempId: 4
+UserId: 4  MessageCount: 2  ResultCount: 236
+TempId: 4
+UserId: 4  MessageCount: 229  ResultCount: 236
+TempId: 4
+UserId: 4  MessageCount: 3  ResultCount: 240
+TempId: 4
+UserId: 4  MessageCount: 230  ResultCount: 241
+TempId: 4
+UserId: 4  MessageCount: 4  ResultCount: 243
+TempId: 4
+UserId: 4  MessageCount: 231  ResultCount: 244
+TempId: 4
+UserId: 4  MessageCount: 5  ResultCount: 244
+TempId: 4
+UserId: 4  MessageCount: 232  ResultCount: 244
+TempId: 4
+UserId: 4  MessageCount: 287  ResultCount: 244
+TempId: 4
+UserId: 4  MessageCount: 288  ResultCount: 244
+TempId: 4
+UserId: 4  MessageCount: 289  ResultCount: 244
+TempId: 4
+UserId: 4  MessageCount: 290  ResultCount: 246
+TempId: 4
+UserId: 4  MessageCount: 244  ResultCount: 246
+TempId: 4
+UserId: 4  MessageCount: 291  ResultCount: 248
+TempId: 4
+UserId: 4  MessageCount: 245  ResultCount: 248
+TempId: 4
+UserId: 4  MessageCount: 292  ResultCount: 253
+TempId: 4
+UserId: 4  MessageCount: 246  ResultCount: 253
+TempId: 4
+UserId: 4  MessageCount: 247  ResultCount: 253
+TempId: 4
+UserId: 4  MessageCount: 248  ResultCount: 253
+TempId: 3
+UserId: 3  MessageCount: 293  ResultCount: 300
+TempId: 3
+UserId: 3  MessageCount: 294  ResultCount: 305
+TempId: 3
+UserId: 3  MessageCount: 295  ResultCount: 310
+TempId: 3
+UserId: 3  MessageCount: 296  ResultCount: 315
+TempId: 3
+UserId: 3  MessageCount: 297  ResultCount: 319
+TempId: 3
+UserId: 3  MessageCount: 298  ResultCount: 322
+TempId: 3
+UserId: 3  MessageCount: 299  ResultCount: 325
+TempId: 3
+UserId: 3  MessageCount: 300  ResultCount: 330
+TempId: 3
+UserId: 3  MessageCount: 301  ResultCount: 333
+TempId: 3
+UserId: 3  MessageCount: 302  ResultCount: 337
+TempId: 4
+UserId: 4  MessageCount: 253  ResultCount: 255
+TempId: 4
+UserId: 4  MessageCount: 254  ResultCount: 260
+TempId: 4
+UserId: 4  MessageCount: 255  ResultCount: 264
+TempId: 4
+UserId: 4  MessageCount: 256  ResultCount: 268
+TempId: 4
+UserId: 4  MessageCount: 257  ResultCount: 273
+TempId: 4
+UserId: 4  MessageCount: 258  ResultCount: 277
+TempId: 4
+UserId: 4  MessageCount: 259  ResultCount: 282
+TempId: 4
+UserId: 4  MessageCount: 260  ResultCount: 284
+TempId: 3
+UserId: 3  MessageCount: 261  ResultCount: 338
+TempId: 3
+UserId: 3  MessageCount: 262  ResultCount: 342
+TempId: 3
+UserId: 3  MessageCount: 263  ResultCount: 344
+TempId: 3
+UserId: 3  MessageCount: 264  ResultCount: 348
+TempId: 3
+UserId: 3  MessageCount: 265  ResultCount: 352
+TempId: 3
+UserId: 3  MessageCount: 266  ResultCount: 355
+TempId: 3
+UserId: 3  MessageCount: 267  ResultCount: 358
+TempId: 3
+UserId: 3  MessageCount: 268  ResultCount: 361
+TempId: 3
+UserId: 3  MessageCount: 269  ResultCount: 364
+TempId: 3
+UserId: 3  MessageCount: 270  ResultCount: 367
+TempId: 3
+UserId: 3  MessageCount: 271  ResultCount: 370
+TempId: 4
+UserId: 4  MessageCount: 284  ResultCount: 288
+TempId: 4
+UserId: 4  MessageCount: 285  ResultCount: 292
+TempId: 4
+UserId: 4  MessageCount: 286  ResultCount: 297
+TempId: 4
+UserId: 4  MessageCount: 287  ResultCount: 302
+TempId: 3
+UserId: 3  MessageCount: 370  ResultCount: 374
+TempId: 3
+UserId: 3  MessageCount: 371  ResultCount: 378
+TempId: 3
+UserId: 3  MessageCount: 372  ResultCount: 381
+TempId: 3
+UserId: 3  MessageCount: 373  ResultCount: 385
+TempId: 3
+UserId: 3  MessageCount: 374  ResultCount: 390
+TempId: 3
+UserId: 3  MessageCount: 375  ResultCount: 393
+TempId: 3
+UserId: 3  MessageCount: 376  ResultCount: 397
+TempId: 3
+UserId: 3  MessageCount: 377  ResultCount: 401
+TempId: 3
+UserId: 3  MessageCount: 378  ResultCount: 405
+TempId: 3
+UserId: 3  MessageCount: 379  ResultCount: 410
+TempId: 3
+UserId: 3  MessageCount: 380  ResultCount: 413
+TempId: 3
+UserId: 3  MessageCount: 381  ResultCount: 418
+TempId: 3
+UserId: 3  MessageCount: 382  ResultCount: 421
+TempId: 3
+UserId: 3  MessageCount: 383  ResultCount: 423
+TempId: 3
+UserId: 3  MessageCount: 384  ResultCount: 426
+TempId: 3
+UserId: 3  MessageCount: 385  ResultCount: 428
+TempId: 4
+UserId: 4  MessageCount: 304  ResultCount: 305
+TempId: 4
+UserId: 4  MessageCount: 305  ResultCount: 309
+TempId: 4
+UserId: 4  MessageCount: 306  ResultCount: 314
+TempId: 4
+UserId: 4  MessageCount: 307  ResultCount: 318
+TempId: 4
+UserId: 4  MessageCount: 308  ResultCount: 323
+TempId: 4
+UserId: 4  MessageCount: 309  ResultCount: 328
+TempId: 4
+UserId: 4  MessageCount: 310  ResultCount: 333
+TempId: 4
+UserId: 4  MessageCount: 311  ResultCount: 337
+TempId: 4
+UserId: 4  MessageCount: 312  ResultCount: 341
+TempId: 4
+UserId: 4  MessageCount: 313  ResultCount: 346
+TempId: 4
+UserId: 4  MessageCount: 314  ResultCount: 350
+TempId: 4
+UserId: 4  MessageCount: 315  ResultCount: 352
+TempId: 4
+UserId: 4  MessageCount: 316  ResultCount: 354
+TempId: 4
+UserId: 4  MessageCount: 317  ResultCount: 358
+TempId: 4
+UserId: 4  MessageCount: 318  ResultCount: 359
+TempId: 4
+UserId: 4  MessageCount: 319  ResultCount: 360
+TempId: 4
+UserId: 4  MessageCount: 320  ResultCount: 365
+TempId: 4
+UserId: 4  MessageCount: 321  ResultCount: 370
+TempId: 4
+UserId: 4  MessageCount: 322  ResultCount: 374
+TempId: 4
+UserId: 4  MessageCount: 323  ResultCount: 378
+TempId: 3
+UserId: 3  MessageCount: 432  ResultCount: 439
+TempId: 3
+UserId: 3  MessageCount: 433  ResultCount: 441
+TempId: 3
+UserId: 3  MessageCount: 434  ResultCount: 446
+TempId: 3
+UserId: 3  MessageCount: 435  ResultCount: 451
+TempId: 3
+UserId: 3  MessageCount: 436  ResultCount: 456
+TempId: 3
+UserId: 3  MessageCount: 437  ResultCount: 460
+TempId: 3
+UserId: 3  MessageCount: 438  ResultCount: 464
+TempId: 3
+UserId: 3  MessageCount: 439  ResultCount: 467
+TempId: 3
+UserId: 3  MessageCount: 440  ResultCount: 470
+TempId: 3
+UserId: 3  MessageCount: 441  ResultCount: 474
+TempId: 3
+UserId: 3  MessageCount: 442  ResultCount: 478
+TempId: 3
+UserId: 3  MessageCount: 443  ResultCount: 482
+TempId: 3
+UserId: 3  MessageCount: 444  ResultCount: 484
+TempId: 4
+UserId: 4  MessageCount: 378  ResultCount: 382
+TempId: 4
+UserId: 4  MessageCount: 379  ResultCount: 387
+TempId: 4
+UserId: 4  MessageCount: 380  ResultCount: 391
+TempId: 4
+UserId: 4  MessageCount: 381  ResultCount: 393
+TempId: 4
+UserId: 4  MessageCount: 382  ResultCount: 398
+TempId: 4
+UserId: 4  MessageCount: 383  ResultCount: 403
+TempId: 4
+UserId: 4  MessageCount: 384  ResultCount: 407
+TempId: 4
+UserId: 4  MessageCount: 385  ResultCount: 409
+TempId: 4
+UserId: 4  MessageCount: 386  ResultCount: 412
+TempId: 4
+UserId: 4  MessageCount: 387  ResultCount: 416
+TempId: 4
+UserId: 4  MessageCount: 388  ResultCount: 419
+TempId: 4
+UserId: 4  MessageCount: 389  ResultCount: 422
+TempId: 4
+UserId: 4  MessageCount: 390  ResultCount: 423
+TempId: 4
+UserId: 4  MessageCount: 391  ResultCount: 427
+TempId: 4
+UserId: 4  MessageCount: 392  ResultCount: 431
+TempId: 4
+UserId: 4  MessageCount: 393  ResultCount: 436
+TempId: 4
+UserId: 4  MessageCount: 394  ResultCount: 440
+TempId: 4
+UserId: 4  MessageCount: 395  ResultCount: 443
+TempId: 4
+UserId: 4  MessageCount: 396  ResultCount: 446
+TempId: 4
+UserId: 4  MessageCount: 397  ResultCount: 449
+TempId: 4
+UserId: 4  MessageCount: 398  ResultCount: 450
+TempId: 4
+UserId: 4  MessageCount: 399  ResultCount: 452
+TempId: 4
+UserId: 4  MessageCount: 400  ResultCount: 456
+TempId: 4
+UserId: 4  MessageCount: 401  ResultCount: 457
+TempId: 4
+UserId: 4  MessageCount: 402  ResultCount: 457
+TempId: 4
+UserId: 4  MessageCount: 403  ResultCount: 458
+TempId: 4
+UserId: 4  MessageCount: 404  ResultCount: 458
+TempId: 4
+UserId: 4  MessageCount: 405  ResultCount: 459
+TempId: 4
+UserId: 4  MessageCount: 406  ResultCount: 464
+TempId: 4
+UserId: 4  MessageCount: 407  ResultCount: 467
+TempId: 4
+UserId: 4  MessageCount: 408  ResultCount: 471
+TempId: 4
+UserId: 4  MessageCount: 409  ResultCount: 475
+TempId: 4
+UserId: 4  MessageCount: 410  ResultCount: 480
+TempId: 4
+UserId: 4  MessageCount: 411  ResultCount: 485
+TempId: 4
+UserId: 4  MessageCount: 412  ResultCount: 488
+TempId: 4
+UserId: 4  MessageCount: 413  ResultCount: 492
+TempId: 3
+UserId: 3  MessageCount: 484  ResultCount: 493
+TempId: 3
+UserId: 3  MessageCount: 485  ResultCount: 493
+TempId: 6
+UserId: 6  MessageCount: 0  ResultCount: 1
+TempId: 2
+UserId: 2  MessageCount: 0  ResultCount: 1
+TempId: 7
+UserId: 7  MessageCount: 0  ResultCount: 1
+TempId: 9
+UserId: 9  MessageCount: 0  ResultCount: 1
+TempId: 9
+UserId: 9  MessageCount: 1  ResultCount: 2

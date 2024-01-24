@@ -158,7 +158,7 @@
                     <RowDefinition Height="0.4*"/>
                 </Grid.RowDefinitions>
 
-                <ListView  x:Name="list2"  Background="Gray" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding Messages}" Width="400" >
+                <ListView x:Name="list2"   Background="Gray"  ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding Messages}" Width="400" >
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Orientation="Vertical"/>
@@ -169,7 +169,8 @@
                             <Label Width="390" FontStyle="Italic" FontWeight="Bold"  Foreground="Black">
                                 <Label.Style>
                                     <Style TargetType="Label">
-                                        <Setter Property="Content" Value="{Binding Message}"/>
+                                        <Setter Property="Padding" Value="0,0,30,0"/>
+                                        <Setter Property="Content" Value="{Binding MessageForVisual}"/>
                                         <Setter Property="HorizontalContentAlignment" Value="Right"/>
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding RightOrLeft}" Value="0">
