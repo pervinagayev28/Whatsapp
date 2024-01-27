@@ -17,8 +17,8 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using System.Xml.XPath;
 using Whatsapp.Commands;
-using Whatsapp.DbContexts;
 using Whatsapp.Models;
+using Whatsapp.Models.TestModels;
 using Whatsapp.Services;
 using Whatsapp.Views.ViewPages;
 using Whatsapp.Views.ViewWindows;
@@ -31,9 +31,8 @@ namespace Whatsapp.ViewModels.ViewModelsPage
     {
         private ManualResetEvent pauseEvent = new ManualResetEvent(true);
 
-        private DispatcherTimer timer;
+        private DispatcherTimer? timer;
         private static SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
-        //Timer timer;
         Grid grid;
         public ICommand? SelectedChatUser { get; set; }
         public ICommand? SendMessageCommand { get; set; }
@@ -59,28 +58,29 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         {
 
             context = new();
-            SelectedChatUser = new Command(ExecuteSelectedChatUser);
-            SendMessageCommand = new Command(ExecuteSendMessageCommand, CanExecuteSendMessageCommand);
-            LogOutCommand = new Command(ExecuteLogOutCommand);
-            AllUsersCommand = new Command(ExecuteAllUsersCommandAsync);
-            OnlyChatUsersCommand = new Command(ExecuteOnlyChatUsersCommand);
-            ProfileCommand = new Command(ExecuteProfileCommand);
+            SelectedChatUser = new CommandAsync(ExecuteSelectedChatUser);
+            SendMessageCommand = new CommandAsync(ExecuteSendMessageCommand, CanExecuteSendMessageCommand);
+            LogOutCommand = new CommandAsync(ExecuteLogOutCommand);
+            AllUsersCommand = new CommandAsync(ExecuteAllUsersCommandAsync);
+            OnlyChatUsersCommand = new CommandAsync(ExecuteOnlyChatUsersCommand);
+            ProfileCommand = new CommandAsync(ExecuteProfileCommand);
             start(Gmail);
         }
 
         private bool CanExecuteSendMessageCommand(object obj) =>
             currentSelectedUserId != 0;
 
-        private void ExecuteProfileCommand(object obj)
+        private async Task ExecuteProfileCommand(object obj)
         {
             var page = new WindowProfile();
             timer.Stop();
             page.DataContext = new ViewModelProfile(User, context);
             page.ShowDialog();
             timer.Start();
+            await Task.CompletedTask;
         }
 
-        private async void ExecuteOnlyChatUsersCommand(object obj)
+        private async  Task ExecuteOnlyChatUsersCommand(object obj)
         {
             if (check)
             {
@@ -90,7 +90,7 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         }
 
 
-        private async void ExecuteAllUsersCommandAsync(object obj)
+        private async Task ExecuteAllUsersCommandAsync(object obj)
         {
             check = true;
             await GetAllUsers();
@@ -99,7 +99,7 @@ namespace Whatsapp.ViewModels.ViewModelsPage
 
         private async void start(string Gmail)
         {
-            User = await context.UsersTbs.FirstOrDefaultAsync(u => u.Gmail == Gmail)!;
+            User = await context?.UsersTbs.FirstOrDefaultAsync(u => u.Gmail == Gmail)!;
             await GetUsers();
             await GetLastMessages();
             timer = new DispatcherTimer();
@@ -142,7 +142,7 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         private async Task GetAllUsers()
         {
             timer?.Stop();
-            Users = new(await context.UsersTbs.ToListAsync());
+            Users = new(await context!.UsersTbs.ToListAsync());
             timer?.Start();
         }
 
@@ -151,20 +151,22 @@ namespace Whatsapp.ViewModels.ViewModelsPage
             pauseEvent.Reset();
            
 
-            Users = new(await context.UsersTbs.
-                            Where(u => u.MessagesFrom.Any(m => m.From.Id == User.Id) || u.MessagesTo.Any(m => m.To.Id == User.Id))
+            Users = new(await context.UsersTbs
+                             .Where(u=>(u.Id!=User!.Id)&&(u.MessagesTbUsers.Any(m=>m.To.Id==User.Id || m.UserId == User.Id) || u.MessagesTbUsers.Any(m => m.To.Id == User.Id || m.UserId == User.Id)))
+                            .Include(u=>u.MessagesTbUsers)
+                            .Include(u=>u.MessagesTbTos)
                             .ToListAsync());
-
-
-
+            await GetLastMessages();
             pauseEvent.Set();
         }
 
-        private void ExecuteLogOutCommand(object obj)
+        private async Task ExecuteLogOutCommand(object obj)
         {
             var page = new ViewEntry();
             page.DataContext = new ViewModelEntry();
             ((Page)obj).NavigationService.Navigate(page);
+            await Task.CompletedTask;
+
         }
 
 
@@ -231,24 +233,27 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         }
 
 
-        private async void ExecuteSendMessageCommand(object obj)
+        private async Task ExecuteSendMessageCommand(object obj)
         {
-            timer.Stop();
+            timer?.Stop();
             await semaphore.WaitAsync();
             pauseEvent.Reset();
-            await context.MessagesTbs.AddAsync(new MessagesTb() { UserId = User.Id, Message = ((TextBox)obj).Text, Date = DateTime.Now, ToId = currentSelectedUserId });
+            
+            await context!.MessagesTbs.AddAsync(new MessagesTb() { UserId = User.Id, Message = ((TextBox)obj).Text, Date = DateTime.Now, ToId = currentSelectedUserId });
             await context.SaveChangesAsync();
+            
             pauseEvent.Set();
             semaphore.Release();
-            timer.Start();
+            timer?.Start();
             ((TextBox)obj).Text = "";
         }
 
-        private void ExecuteSelectedChatUser(object obj)
+        private async Task ExecuteSelectedChatUser(object obj)
         {
             grid = (Grid)obj;
             timer?.Start();
             currentSelectedUserId = Users[(int)((ListView)grid.FindName("list")).SelectedIndex].Id;
+            await Task.CompletedTask;
         }
 
 

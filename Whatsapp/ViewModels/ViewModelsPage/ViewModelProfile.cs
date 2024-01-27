@@ -11,8 +11,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Whatsapp.Commands;
-using Whatsapp.DbContexts;
 using Whatsapp.Models;
+using Whatsapp.Models.TestModels;
 using Whatsapp.Services;
 
 namespace Whatsapp.ViewModels.ViewModelsPage
@@ -28,7 +28,7 @@ namespace Whatsapp.ViewModels.ViewModelsPage
 
         public MyChatingAppContext? Context { get; }
 
-        public ViewModelProfile(UsersTb user, DbContexts.MyChatingAppContext? context)
+        public ViewModelProfile(UsersTb user, MyChatingAppContext? context)
         {
             User = user;
             Context = context;

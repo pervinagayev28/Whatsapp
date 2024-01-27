@@ -322,10 +322,10 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Tools/7.0.14": {
+      "Microsoft.EntityFrameworkCore.Tools/7.0.15": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": "7.0.14"
+          "Microsoft.EntityFrameworkCore.Design": "7.0.15"
         },
         "compile": {
           "lib/net6.0/_._": {}
@@ -3190,17 +3190,17 @@
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Tools/7.0.14": {
-      "sha512": "RjGysXi4k0yM7b2Znyasdhqu5FxOeuyZzo9g2w/ZhP87VsgFeoiykDPs69qIGTjjLbW0N5+srrl439ZQnMlHXw==",
+    "Microsoft.EntityFrameworkCore.Tools/7.0.15": {
+      "sha512": "7/gt7XfvQ1Sb7+kk6HkU8s6MlCkXRoEHKcJ0fXjGhLgDPq6e1G9/WJZvCxuLJzOFjxn4MIJMiEbdN8KVrIQ9CA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.tools/7.0.14",
+      "path": "microsoft.entityframeworkcore.tools/7.0.15",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/_._",
-        "microsoft.entityframeworkcore.tools.7.0.14.nupkg.sha512",
+        "microsoft.entityframeworkcore.tools.7.0.15.nupkg.sha512",
         "microsoft.entityframeworkcore.tools.nuspec",
         "tools/EntityFrameworkCore.PS2.psd1",
         "tools/EntityFrameworkCore.PS2.psm1",
@@ -8505,7 +8505,7 @@
       "MaterialDesignThemes >= 4.9.0",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.15",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.14",
-      "Microsoft.EntityFrameworkCore.Tools >= 7.0.14",
+      "Microsoft.EntityFrameworkCore.Tools >= 7.0.15",
       "Microsoft.Extensions.Configuration.Json >= 7.0.0",
       "Microsoft.Extensions.Logging.Console >= 7.0.0",
       "Serilog.Extensions.Logging >= 7.0.0",
@@ -8570,7 +8570,7 @@
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[7.0.14, )"
+            "version": "[7.0.15, )"
           },
           "Microsoft.Extensions.Configuration.Json": {
             "target": "Package",

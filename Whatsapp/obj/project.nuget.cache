@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QxpKunsUbrJqtM6CUxXOdKXDlb8zOhYlBzbPnvdoovcVLNyD8qO68afOWyUkr9ElkE2pfV9ko8+l0JeRkF21hw==",
+  "dgSpecHash": "I/rTikoygcBzFRn4jGH2NRCIG5dpkJG4SqcESFeP+635ZWhk9QSuUBNKE4NLm0d3K/1ouDNB+VRRlefHY1Y/dg==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\Whatsapp\\Whatsapp\\Whatsapp.csproj",
   "expectedPackageFiles": [
@@ -22,7 +22,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.design\\7.0.15\\microsoft.entityframeworkcore.design.7.0.15.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\7.0.15\\microsoft.entityframeworkcore.relational.7.0.15.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\7.0.14\\microsoft.entityframeworkcore.sqlserver.7.0.14.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.14\\microsoft.entityframeworkcore.tools.7.0.14.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.15\\microsoft.entityframeworkcore.tools.7.0.15.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
