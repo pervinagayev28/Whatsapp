@@ -152,7 +152,9 @@ namespace Whatsapp.ViewModels.ViewModelsPage
            
 
             Users = new(await context.UsersTbs
-                             .Where(u=>(u.Id!=User!.Id)&&(u.MessagesTbUsers.Any(m=>m.To.Id==User.Id || m.UserId == User.Id) || u.MessagesTbUsers.Any(m => m.To.Id == User.Id || m.UserId == User.Id)))
+                             .Where(u=>(u.Id!=User!.Id)&&(u.MessagesTbUsers
+                                    .Any(m=>m.ToId==User.Id || m.UserId == User.Id) || u.MessagesTbTos
+                                    .Any(m => m.ToId == User.Id || m.UserId == User.Id)))
                             .Include(u=>u.MessagesTbUsers)
                             .Include(u=>u.MessagesTbTos)
                             .ToListAsync());
