@@ -20,7 +20,10 @@ public partial class MyChatingAppContext : DbContext
     public virtual DbSet<UsersTb> UsersTbs { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-47DGCU6\\SQL;Initial Catalog=MyChatingApp;User ID=MySql;Password=pervina9266_1;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        => optionsBuilder.UseSqlServer("Data Source=STHQ0118-03;Initial Catalog=MyChatingApp;User ID=admin;Password=admin;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        //=> optionsBuilder.UseSqlServer("Data Source=pervin.database.windows.net;Initial Catalog=MyImagesDb;User ID=agayev;Password=pervina9266_1;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        //=> optionsBuilder.UseSqlServer("Server=tcp:pervin.database.windows.net,1433;Initial Catalog=chatapp;Persist Security Info=False;User ID=agayev;Password=pervina9266_1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        //=> optionsBuilder.UseSqlServer("Data Source=DESKTOP-47DGCU6\\SQL;Initial Catalog=MyChatingApp;User ID=MySql;Password=pervina9266_1;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -12,6 +12,7 @@
           WindowStartupLocation="CenterScreen"
             Background="Transparent"        Title="Profile" Height="500" Width="350">
     <Window.Resources>
+        
         <Style  TargetType="Label">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Width" Value="200"/>
@@ -27,20 +28,29 @@
             <ImageBrush  ImageSource="\Images\background.jpg"/>
         </Border.Background>
         <Grid Background="Transparent">
+
+          
+
+
             <Button Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=window}" Margin="20,10"  HorizontalAlignment="Right" VerticalAlignment="Top" 
-Style="{StaticResource MaterialDesignIconButton}"
-ToolTip="MaterialDesignIconButton"
-IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
-                <materialDesign:PackIcon Height="50" Width="40" Foreground="Green"
-  Kind="Close" />
-                
+                    Style="{StaticResource MaterialDesignIconButton}"
+                    ToolTip="MaterialDesignIconButton"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
+                                    <materialDesign:PackIcon Height="50" Width="40" Foreground="Green"
+                      Kind="Close" />
+
             </Button>
             <StackPanel>
-                <Border Margin="30" Height="100" Width="100" CornerRadius="50" BorderBrush="Black" BorderThickness="2">
-                    <Border.Background>
-                        <ImageBrush ImageSource="{Binding User.ImagePath}"/>
-                    </Border.Background>
-                </Border>
+
+                <Button Command="{Binding CommandGetImage}" CommandParameter="{Binding ElementName=OpenedImageGrid}" BorderThickness="0"  Height="100" Width="100" Background="Transparent" Margin="30" Padding="0">
+                    <Border  Height="100" Width="100" CornerRadius="50" BorderBrush="Black"  BorderThickness="2">
+                        <Border.Background>
+                            <ImageBrush  ImageSource="{Binding User.ImagePath}" Stretch="UniformToFill"/>
+                        </Border.Background>
+                    </Border>
+                </Button>
+
+
                 <StackPanel  Margin="20" Orientation="Horizontal" HorizontalAlignment="Center" >
                     <Label HorizontalContentAlignment="Center" HorizontalAlignment="Center" Padding="0" Width="270"  Content="{Binding User.Gmail}" />
                 </StackPanel>
@@ -52,8 +62,26 @@ IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource 
                     <TextBox Foreground="White" Width="200" Padding="0,0,20,0" Text="{Binding User.ImagePath}" Name="ImageUrl"/>
                     <Button Command="{Binding ChangeImageUrlCommand}" CommandParameter="{Binding ElementName=ImageUrl,Path=Text}" Height="30" Width="70" Content="change" FontSize="12" Padding="0"/>
                 </StackPanel>
+                <StackPanel Margin="20" Orientation="Horizontal" HorizontalAlignment="Center" >
+                    <TextBox Foreground="White" Width="200" Padding="0,0,20,0" Text="{Binding User.Bio}" Name="Bio"/>
+                    <Button Command="{Binding ChangeBioCommand}" CommandParameter="{Binding ElementName=Bio,Path=Text}" Height="30" Width="70" Content="change" FontSize="12" Padding="0"/>
+                </StackPanel>
                 <Button Command="{Binding ChangeImageFromPCCommand}" Margin="10" Width="200" Height="30" Content="Load Photo from PC"/>
             </StackPanel>
+
+            <Grid Name="OpenedImageGrid" Visibility="Hidden" Height="370">
+                <Button Command="{Binding CloseOpenedImageCommand}" CommandParameter="{Binding ElementName=OpenedImageGrid}" Margin="20,10"  HorizontalAlignment="Right" VerticalAlignment="Top" 
+                        Style="{StaticResource MaterialDesignIconButton}"
+                        ToolTip="MaterialDesignIconButton"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
+                                            <materialDesign:PackIcon Height="50" Width="40" Foreground="Green"
+                          Kind="Close" />
+
+                </Button>
+                <Image Source="{Binding User.ImagePath}" Height="250" Width="300" />
+
+            </Grid>
+
         </Grid>
     </Border>
 </Window>

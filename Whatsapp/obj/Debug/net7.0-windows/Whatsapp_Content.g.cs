@@ -19,6 +19,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/images.jpeg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/myphoto.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/photo-little-brunet-boy-wear-260nw-2030792027.webp")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/screenshot%202023-12-07%20110202.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/your%20profile.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/images/blue-chat-app-icon-on-blue-background-3d-illustration-vector.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/images/whatsapp-icon-design_23-2147900927.avif")]

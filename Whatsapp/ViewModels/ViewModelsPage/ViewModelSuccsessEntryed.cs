@@ -149,8 +149,8 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         private async Task GetUsers()
         {
             pauseEvent.Reset();
-           
 
+            timer?.Stop();
             Users = new(await context.UsersTbs
                              .Where(u=>(u.Id!=User!.Id)&&(u.MessagesTbUsers
                                     .Any(m=>m.ToId==User.Id || m.UserId == User.Id) || u.MessagesTbTos
@@ -160,6 +160,7 @@ namespace Whatsapp.ViewModels.ViewModelsPage
                             .ToListAsync());
             await GetLastMessages();
             pauseEvent.Set();
+            timer?.Start();
         }
 
         private async Task ExecuteLogOutCommand(object obj)

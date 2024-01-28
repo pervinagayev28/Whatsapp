@@ -22,7 +22,10 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         public ICommand? ChangePasswordCommand { get; set; }
         public ICommand? ChangeImageUrlCommand { get; set; }
         public ICommand? ChangeImageFromPCCommand { get; set; }
+        public ICommand? ChangeBioCommand { get; set; }
         public ICommand? CloseCommand { get; set; }
+        public ICommand? CommandGetImage { get; set; }
+        public ICommand? CloseOpenedImageCommand { get; set; }
         private UsersTb? user;
         public UsersTb? User { get => user; set { user = value; OnPropertyChanged(); } }
 
@@ -36,7 +39,26 @@ namespace Whatsapp.ViewModels.ViewModelsPage
             ChangeImageUrlCommand = new Command(ExecuteChangeImageUrlCommand, CanExecuteChangeImageUrlCommand);
             ChangeImageFromPCCommand = new Command(ExecuteChangeImageFromPCCommand);
             CloseCommand = new Command(ExecuteCloseCommand);
+            ChangeBioCommand = new Command(ExecuteChangeBioCommand, CanExecuteChangeBioCommand);
+            CommandGetImage = new Command(ExecuteCommandGetImage, CanExecuteCommandGetImage);
+            CloseOpenedImageCommand = new Command(ExecuteCloseOpenedImageCommand);
         }
+
+        private void ExecuteCloseOpenedImageCommand(object obj)=>
+              ((Grid)obj).Visibility = Visibility.Hidden;
+        private bool CanExecuteCommandGetImage(object obj) =>
+            obj is not null;
+
+        private void ExecuteCommandGetImage(object obj)
+        {
+            ((Grid)obj).Visibility = Visibility.Visible;
+        }
+
+        private bool CanExecuteChangeBioCommand(object obj) =>
+            User?.Bio != obj?.ToString();
+
+        private void ExecuteChangeBioCommand(object obj) =>
+            User.Bio = obj.ToString();
 
         private bool CanExecuteChangeImageUrlCommand(object obj) =>
             User.ImagePath != obj.ToString();

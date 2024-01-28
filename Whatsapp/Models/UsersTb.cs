@@ -14,6 +14,7 @@ public partial class UsersTb:ServiceINotifyPropertyChanged
     public int Id { get; set; }
 
     public string Password { get; set; } = null!;
+    public string ?Bio{ get; set; } = null!;
     public string Gmail { get => gmail; set { gmail = value; OnPropertyChanged(); } }
 
     public string? ImagePath { get => imagePath; set { imagePath = value; OnPropertyChanged(); } }
