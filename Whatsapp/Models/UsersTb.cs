@@ -22,6 +22,8 @@ public partial class UsersTb:ServiceINotifyPropertyChanged
     public virtual ICollection<MessagesTb> MessagesTbTos { get; set; } = new List<MessagesTb>();
 
     public virtual ICollection<MessagesTb> MessagesTbUsers { get; set; } = new List<MessagesTb>();
+    public virtual ICollection<ConnectionsTb> ConnectionsTbTos{ get; set; } = new List<ConnectionsTb>();
+    public virtual ICollection<ConnectionsTb> ConnectionsTbFroms{ get; set; } = new List<ConnectionsTb>();
 
     [NotMapped]
     public string? LastMessage { get => lastMessage; set { lastMessage = value; OnPropertyChanged(); } }

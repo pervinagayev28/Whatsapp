@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml.XPath;
 using Whatsapp.Commands;
@@ -29,17 +31,24 @@ namespace Whatsapp.ViewModels.ViewModelsPage
 
     class ViewModelSuccsessEntryed : ServiceINotifyPropertyChanged
     {
+        private static DateTime? temp;
         private ManualResetEvent pauseEvent = new ManualResetEvent(true);
 
         private DispatcherTimer? timer;
         private static SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
         Grid grid;
+
+        private List<ConnectionsTb>? connections;
+
         public ICommand? SelectedChatUser { get; set; }
         public ICommand? SendMessageCommand { get; set; }
         public ICommand? LogOutCommand { get; set; }
         public ICommand? AllUsersCommand { get; set; }
         public ICommand? OnlyChatUsersCommand { get; set; }
         public ICommand? ProfileCommand { get; set; }
+        public ICommand? CloseOpenedImageCommand { get; set; }
+        public ICommand? GetImageCommand { get; set; }
+        public ICommand? DeleteCommand { get; set; }
         public UsersTb? User { get => user; set { user = value; OnPropertyChanged(); } }
         private static int tempId;
         public ObservableCollection<UsersTb> Users { get => users; set { users = value; OnPropertyChanged(); } }
@@ -48,11 +57,13 @@ namespace Whatsapp.ViewModels.ViewModelsPage
 
         private ObservableCollection<MessagesTb> messages = new();
         public MyChatingAppContext? context { get; set; }
+        public string SelectedUserImagePath { get => selectedUserImagePath; set { selectedUserImagePath = value; OnPropertyChanged(); } }
 
 
         private int currentSelectedUserId;
         private static bool check = false;
         private UsersTb? user;
+        private string selectedUserImagePath;
 
         public ViewModelSuccsessEntryed(string Gmail, MyChatingAppContext? myChatingAppContext)
         {
@@ -60,11 +71,56 @@ namespace Whatsapp.ViewModels.ViewModelsPage
             context = new();
             SelectedChatUser = new CommandAsync(ExecuteSelectedChatUser);
             SendMessageCommand = new CommandAsync(ExecuteSendMessageCommand, CanExecuteSendMessageCommand);
-            LogOutCommand = new CommandAsync(ExecuteLogOutCommand);
-            AllUsersCommand = new CommandAsync(ExecuteAllUsersCommandAsync);
-            OnlyChatUsersCommand = new CommandAsync(ExecuteOnlyChatUsersCommand);
+            LogOutCommand = new Command(ExecuteLogOutCommand);
+            AllUsersCommand = new CommandAsync(ExecuteAllUsersCommandAsync, CanExecuteAllUsersCommandAsync);
+            OnlyChatUsersCommand = new CommandAsync(ExecuteOnlyChatUsersCommand, CanExecuteOnlyChatUsersCommand);
             ProfileCommand = new CommandAsync(ExecuteProfileCommand);
+            CloseOpenedImageCommand = new Command(ExecuteCloseOpenedImageCommand);
+            GetImageCommand = new Command(ExecuteGetImageCommand);
+            DeleteCommand = new CommandAsync(ExecuteDeleteCommand, CanExecuteDeleteCommand);
             start(Gmail);
+        }
+
+        private bool CanExecuteAllUsersCommandAsync(object obj) =>
+            !check;
+
+        private bool CanExecuteOnlyChatUsersCommand(object obj) =>
+            check;
+
+        private bool CanExecuteDeleteCommand(object obj) =>
+            ((ListView)obj)?.SelectedItems?.Count > 0;
+
+        private async Task ExecuteDeleteCommand(object arg)
+        {
+            timer?.Stop();
+            foreach (var item in ((ListView)arg)?.SelectedItems!)
+            {
+                foreach (var connect in connections!)
+                {
+                    if (connect.FromId == User.Id && connect.ToId == (item as UsersTb)?.Id)
+                        connect.SofDeleteFrom = true;
+                    else if (connect.ToId == User.Id && connect.FromId == (item as UsersTb)?.Id)
+                        connect.SoftDeleteTo = true;
+                }
+            }
+             ((ListView)arg)?.SelectedItems?.Clear();
+            currentSelectedUserId = default;
+            await context?.SaveChangesAsync()!;
+            await GetUsers();
+            timer?.Start();
+        }
+
+
+
+        private void ExecuteGetImageCommand(object arg)
+        {
+            ((Grid)((Grid)arg).FindName("OpenedImageGrid")).Visibility = Visibility.Visible;
+            SelectedUserImagePath = (((ListView)((Grid)arg).FindName("list")).SelectedItem as UsersTb)!.ImagePath!;
+        }
+
+        private void ExecuteCloseOpenedImageCommand(object arg)
+        {
+            ((Grid)arg).Visibility = Visibility.Hidden;
         }
 
         private bool CanExecuteSendMessageCommand(object obj) =>
@@ -80,13 +136,10 @@ namespace Whatsapp.ViewModels.ViewModelsPage
             await Task.CompletedTask;
         }
 
-        private async  Task ExecuteOnlyChatUsersCommand(object obj)
+        private async Task ExecuteOnlyChatUsersCommand(object obj)
         {
-            if (check)
-            {
-                check = false;
-                await GetUsers();
-            }
+            check = false;
+            await GetUsers();
         }
 
 
@@ -94,7 +147,6 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         {
             check = true;
             await GetAllUsers();
-            //await GetLastMessages();
         }
 
         private async void start(string Gmail)
@@ -102,24 +154,17 @@ namespace Whatsapp.ViewModels.ViewModelsPage
             User = await context?.UsersTbs.FirstOrDefaultAsync(u => u.Gmail == Gmail)!;
             await GetUsers();
             await GetLastMessages();
+            connections = await context.ConnectionsTb.ToListAsync();
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += async (sender, e) => await TrickerDataBase();
-            //await GetLastMessages();
-            //timer.Start();
-            //timer = new Timer(async state => await TrickerDataBase(), null, 0, 1000);
-
-
         }
         private async Task GetLastMessages()
         {
             timer?.Stop();
-
-
-            pauseEvent.Reset();
             foreach (var item in users)
             {
-              
+
                 var messages = await context.MessagesTbs
                   .Where(message => message.User.Id == User.Id
                                  && message.To.Id == item.Id
@@ -133,8 +178,11 @@ namespace Whatsapp.ViewModels.ViewModelsPage
                 item.LastMessage = messages?.Message;
                 item.LastMessageDate = messages?.Date;
             }
-            pauseEvent.Set();
-            //Users = new(Users.OrderByDescending(u => u.LastMessageDate).ToList());
+
+            if (temp < users?.FirstOrDefault(u => u.Id == currentSelectedUserId)?.LastMessageDate || timer is null)
+                Users = new(Users.OrderByDescending(u => u.LastMessageDate).ToList());
+            temp = users?.FirstOrDefault(u => u.Id == currentSelectedUserId)?.LastMessageDate;
+            connections = await context.ConnectionsTb.ToListAsync();
             timer?.Start();
         }
 
@@ -152,23 +200,25 @@ namespace Whatsapp.ViewModels.ViewModelsPage
 
             timer?.Stop();
             Users = new(await context.UsersTbs
-                             .Where(u=>(u.Id!=User!.Id)&&(u.MessagesTbUsers
-                                    .Any(m=>m.ToId==User.Id || m.UserId == User.Id) || u.MessagesTbTos
-                                    .Any(m => m.ToId == User.Id || m.UserId == User.Id)))
-                            .Include(u=>u.MessagesTbUsers)
-                            .Include(u=>u.MessagesTbTos)
+                             .Where(u => (u.Id != User!.Id) && (u.MessagesTbUsers
+                                        .Any(m => m.ToId == User.Id || m.UserId == User.Id) || u.MessagesTbTos
+                                        .Any(m => m.ToId == User.Id || m.UserId == User.Id))
+                                         && u.ConnectionsTbFroms
+                                        .Any(c => c.FromId == User.Id && !c.SofDeleteFrom || c.ToId == User.Id && !c.SoftDeleteTo) || u.ConnectionsTbTos
+                                        .Any(c => c.FromId == User.Id && !c.SofDeleteFrom || c.ToId == User.Id && !c.SoftDeleteTo) && u.Id != User.Id)
+                            .Include(u => u.MessagesTbUsers)
+                            .Include(u => u.MessagesTbTos)
                             .ToListAsync());
             await GetLastMessages();
             pauseEvent.Set();
             timer?.Start();
         }
 
-        private async Task ExecuteLogOutCommand(object obj)
+        private void ExecuteLogOutCommand(object obj)
         {
             var page = new ViewEntry();
             page.DataContext = new ViewModelEntry();
             ((Page)obj).NavigationService.Navigate(page);
-            await Task.CompletedTask;
 
         }
 
@@ -188,7 +238,7 @@ namespace Whatsapp.ViewModels.ViewModelsPage
                       RightOrLeft = x.UserId == currentSelectedUserId ? 0 : 1,
                       Message = x.Message,
                       Date = x.Date,
-                      MessageForVisual = x.Message+" "+x.Date.ToString("HH:mm")
+                      MessageForVisual = x.Message + " " + x.Date.ToString("HH:mm")
                   })
                   .OrderBy(m => m.Date)
                   .ToListAsync();
@@ -204,7 +254,7 @@ namespace Whatsapp.ViewModels.ViewModelsPage
 
                         Messages.Add(new MessagesTb()
                         {
-                            Message = messages.Last().Message ,
+                            Message = messages.Last().Message,
                             MessageForVisual = messages.Last().MessageForVisual,
                             RightOrLeft = messages.Last().RightOrLeft,
                             Date = messages.Last().Date,
@@ -221,7 +271,7 @@ namespace Whatsapp.ViewModels.ViewModelsPage
                 if (grid is not null)
                     ((ListView)grid.FindName("list2")).ScrollIntoView(Messages);
                 Messages = new(messages);
-              
+
                 if (messages.Count != 0 && grid is not null)
                 {
                     ((ListView)grid.FindName("list2")).
@@ -240,12 +290,36 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         {
             timer?.Stop();
             await semaphore.WaitAsync();
-            pauseEvent.Reset();
-            
             await context!.MessagesTbs.AddAsync(new MessagesTb() { UserId = User.Id, Message = ((TextBox)obj).Text, Date = DateTime.Now, ToId = currentSelectedUserId });
+            bool check = true;
+            foreach (var item in connections!)
+            {
+                if ((item.FromId == User.Id && item.ToId == currentSelectedUserId) || (item.ToId == User.Id && item.FromId == currentSelectedUserId))
+                {
+                    check = false;
+                    if (item.FromId == User.Id)
+                    {
+                        item.SoftDeleteTo = false;
+                        item.SofDeleteFrom= false;
+                    }
+                    else if (item.ToId == User.Id)
+                    {
+                        item.SoftDeleteTo = false;
+                        item.SofDeleteFrom = false;
+                    }
+                }
+
+
+            }
+            if (check)
+                await context!.ConnectionsTb.AddAsync(new ConnectionsTb()
+                {
+                    FromId = User.Id,
+                    ToId = currentSelectedUserId
+                });
+
             await context.SaveChangesAsync();
-            
-            pauseEvent.Set();
+            await GetUsers();
             semaphore.Release();
             timer?.Start();
             ((TextBox)obj).Text = "";
