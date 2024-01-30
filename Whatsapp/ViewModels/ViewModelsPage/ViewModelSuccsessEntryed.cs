@@ -69,14 +69,14 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         {
 
             context = new();
-            SelectedChatUser = new CommandAsync(ExecuteSelectedChatUser);
-            SendMessageCommand = new CommandAsync(ExecuteSendMessageCommand, CanExecuteSendMessageCommand);
+            SelectedChatUser = new Command(ExecuteSelectedChatUser);
             LogOutCommand = new Command(ExecuteLogOutCommand);
+            CloseOpenedImageCommand = new Command(ExecuteCloseOpenedImageCommand);
+            GetImageCommand = new Command(ExecuteGetImageCommand);
+            SendMessageCommand = new CommandAsync(ExecuteSendMessageCommand, CanExecuteSendMessageCommand);
             AllUsersCommand = new CommandAsync(ExecuteAllUsersCommandAsync, CanExecuteAllUsersCommandAsync);
             OnlyChatUsersCommand = new CommandAsync(ExecuteOnlyChatUsersCommand, CanExecuteOnlyChatUsersCommand);
             ProfileCommand = new CommandAsync(ExecuteProfileCommand);
-            CloseOpenedImageCommand = new Command(ExecuteCloseOpenedImageCommand);
-            GetImageCommand = new Command(ExecuteGetImageCommand);
             DeleteCommand = new CommandAsync(ExecuteDeleteCommand, CanExecuteDeleteCommand);
             start(Gmail);
         }
@@ -300,7 +300,7 @@ namespace Whatsapp.ViewModels.ViewModelsPage
                     if (item.FromId == User.Id)
                     {
                         item.SoftDeleteTo = false;
-                        item.SofDeleteFrom= false;
+                        item.SofDeleteFrom = false;
                     }
                     else if (item.ToId == User.Id)
                     {
@@ -325,12 +325,11 @@ namespace Whatsapp.ViewModels.ViewModelsPage
             ((TextBox)obj).Text = "";
         }
 
-        private async Task ExecuteSelectedChatUser(object obj)
+        private void ExecuteSelectedChatUser(object obj)
         {
             grid = (Grid)obj;
             timer?.Start();
             currentSelectedUserId = Users[(int)((ListView)grid.FindName("list")).SelectedIndex].Id;
-            await Task.CompletedTask;
         }
 
 
