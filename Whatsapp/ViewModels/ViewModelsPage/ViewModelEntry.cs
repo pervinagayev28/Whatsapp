@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ChatAppDatabaseLibrary.Contexts;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using System;
@@ -6,10 +7,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Navigation;
 using Whatsapp.Commands;
-using Whatsapp.Models.TestModels;
 using Whatsapp.Views.ViewPages;
 
 namespace Whatsapp.ViewModels.ViewModelsPage
@@ -19,16 +22,31 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         private List<string> gmails = new();
         public ICommand? LogInCommand { get; set; }
         public ICommand? RegistrationCommand { get; set; }
+        public ICommand? CloseCommand { get; set; }
         public ViewModelEntry()
         {
             GetUserGmails();
             LogInCommand = new Command(ExecuteLogInCommand, CanExecuteLogInCommand);
             RegistrationCommand = new Command(ExecuteRegistrationCommand);
+            CloseCommand = new Command(ExecuteCloseCommand);
+        }
+
+        private void ExecuteCloseCommand(object obj)
+        {
+            if (obj is Page child)
+            {
+                DependencyObject parent = VisualTreeHelper.GetParent(child);
+
+                while (parent != null && !(parent is NavigationWindow))
+                    parent = VisualTreeHelper.GetParent(parent);
+                if (parent != null)
+                    (parent as NavigationWindow)!.Close();
+            }
         }
 
         private async void GetUserGmails()
         {
-            gmails = await new MyChatingAppContext().UsersTbs.Select(x => x.Gmail).ToListAsync();
+            gmails = await new ChatAppDb().UsersTbs.Select(x => x.Gmail).ToListAsync();
         }
         private void ExecuteRegistrationCommand(object obj)
         {
@@ -44,7 +62,7 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         {
             var page = new SuccessfulLogin();
             page.DataContext = new ViewModelSuccsessEntryed(((PasswordBox)((Page)obj).FindName("GmailTextBox")).Password
-                            , new MyChatingAppContext());
+                            , new ChatAppDb());
             ((Page)obj).NavigationService.Navigate(page);
         }
     }

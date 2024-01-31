@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\Whatsapp\ChatAppService\obj\Debug\net6.0\ChatAppService.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Whatsapp\ChatAppService\obj\Debug\net6.0\ChatAppService.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Whatsapp\ChatAppService\obj\Debug\net6.0\ChatAppService.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Whatsapp\ChatAppService\obj\Debug\net6.0\ChatAppService.AssemblyInfo.cs
+C:\Users\user\Desktop\Whatsapp\ChatAppService\obj\Debug\net6.0\ChatAppService.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Whatsapp\ChatAppService\bin\Debug\net6.0\ChatAppService.deps.json
+C:\Users\user\Desktop\Whatsapp\ChatAppService\bin\Debug\net6.0\ChatAppService.dll
+C:\Users\user\Desktop\Whatsapp\ChatAppService\bin\Debug\net6.0\ChatAppService.pdb
+C:\Users\user\Desktop\Whatsapp\ChatAppService\obj\Debug\net6.0\ChatAppService.dll
+C:\Users\user\Desktop\Whatsapp\ChatAppService\obj\Debug\net6.0\refint\ChatAppService.dll
+C:\Users\user\Desktop\Whatsapp\ChatAppService\obj\Debug\net6.0\ChatAppService.pdb
+C:\Users\user\Desktop\Whatsapp\ChatAppService\obj\Debug\net6.0\ref\ChatAppService.dll

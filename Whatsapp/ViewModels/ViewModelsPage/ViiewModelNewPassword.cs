@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Whatsapp.Commands;
-using Whatsapp.Models.TestModels;
-using Whatsapp.Models;
 using Whatsapp.Views.ViewPages;
+using ChatAppDatabaseLibrary.Contexts;
+using ChatAppModelsLibrary.Models;
 
 namespace Whatsapp.ViewModels.ViewModelsPage
 {
@@ -32,13 +32,13 @@ namespace Whatsapp.ViewModels.ViewModelsPage
 
         private async void ExecuteConfirmCommand(object obj)
         {
-            var user = new UsersTb()
+            var user = new User()
             {
                 Gmail = Gmail,
                 Password = ((PasswordBox)((Page)obj).FindName("CodeOne")).Password,
                 ImagePath = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
             };
-            var context = new MyChatingAppContext();
+            var context = new ChatAppDb();
             await context.UsersTbs.AddAsync(user);
             await context.SaveChangesAsync();
             var page = new SuccessfulLogin();

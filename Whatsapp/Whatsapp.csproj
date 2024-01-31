@@ -49,6 +49,7 @@
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.15">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -66,11 +67,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Dtos\" />
     <Folder Include="Resources\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="bin\Debug\net7.0-windows\appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChatAppDatabaseLibrary\ChatAppDatabaseLibrary.csproj" />
+    <ProjectReference Include="..\ChatAppModelsLibrary\ChatAppModelsLibrary.csproj" />
+    <ProjectReference Include="..\ChatAppService\ChatAppService.csproj" />
   </ItemGroup>
 
 </Project>

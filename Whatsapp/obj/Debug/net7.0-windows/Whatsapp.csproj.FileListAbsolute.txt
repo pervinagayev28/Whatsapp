@@ -418,3 +418,16 @@ C:\Users\user\Source\Repos\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\Whatsapp.p
 C:\Users\user\Source\Repos\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\Whatsapp.genruntimeconfig.cache
 C:\Users\user\Source\Repos\Whatsapp\Whatsapp\obj\Debug\net7.0-windows\ref\Whatsapp.dll
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\Screenshot 2023-12-07 110202.png
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\ChatAppDatabaseLibrary.dll
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\ChatAppModelsLibrary.dll
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\ChatAppService.dll
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\ChatAppDatabaseLibrary.pdb
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\ChatAppModelsLibrary.pdb
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\ChatAppService.pdb
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\blank-profile-picture-973460_1280.jpg
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\blank-profile-picture-973460_1280.webp
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\image.jpg
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\Screenshot_20230910_132940_WhatsApp[75].jpg
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Microsoft.AspNetCore.Mvc.Abstractions.dll
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Microsoft.AspNetCore.Routing.Abstractions.dll
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Microsoft.Net.Http.Headers.dll

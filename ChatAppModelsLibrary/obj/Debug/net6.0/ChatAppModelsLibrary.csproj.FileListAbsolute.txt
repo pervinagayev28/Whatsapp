@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\bin\Debug\net6.0\ChatAppModelsLibrary.deps.json
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\bin\Debug\net6.0\ChatAppModelsLibrary.dll
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\bin\Debug\net6.0\ChatAppModelsLibrary.pdb
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\obj\Debug\net6.0\ChatAppModelsLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\obj\Debug\net6.0\ChatAppModelsLibrary.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\obj\Debug\net6.0\ChatAppModelsLibrary.AssemblyInfo.cs
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\obj\Debug\net6.0\ChatAppModelsLibrary.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\obj\Debug\net6.0\ChatAppModelsLibrary.dll
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\obj\Debug\net6.0\refint\ChatAppModelsLibrary.dll
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\obj\Debug\net6.0\ChatAppModelsLibrary.pdb
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\obj\Debug\net6.0\ref\ChatAppModelsLibrary.dll
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\bin\Debug\net6.0\ChatAppService.dll
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\bin\Debug\net6.0\ChatAppService.pdb
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\obj\Debug\net6.0\ChatAppModelsLibrary.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Whatsapp\ChatAppModelsLibrary\obj\Debug\net6.0\ChatAppModelsLibrary.csproj.CopyComplete

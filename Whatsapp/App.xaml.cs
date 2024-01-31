@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ChatAppDatabaseLibrary.Contexts;
+using ChatAppService.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,8 +9,6 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using Whatsapp.Models.TestModels;
-using Whatsapp.Services;
 
 namespace Whatsapp
 {
@@ -20,7 +20,7 @@ namespace Whatsapp
         {
             base.OnStartup(e);
             _serviceProvider = new ServiceCollection()
-                .AddDbContext<MyChatingAppContext>(options =>
+                .AddDbContext<ChatAppDb>(options =>
                     options.UseSqlServer(Configuration.GetValue("ConnectionStrings", "SqlConnectionString")))
                 .BuildServiceProvider();
         }
