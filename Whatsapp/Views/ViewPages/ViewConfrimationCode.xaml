@@ -10,19 +10,20 @@
   d:DesignHeight="700" d:DesignWidth="1100"
   xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
   Title="ViewConfirmationCode">
+  
     <Border CornerRadius="100" >
         <Border.Background>
-            <ImageBrush  ImageSource="https://turboazimages.blob.core.windows.net/myimages/—Pngtree—contemporary authentic 3d renderings of_8832124.jpg"/>
+            <ImageBrush  ImageSource="\Images\background.jpg"/>
         </Border.Background>
-        <Grid>
-            <Button Margin="40,40"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+        <Grid >
+            <Button Margin="40,40" Command="{Binding GoBackCommand}" CommandParameter="{Binding ElementName=page}"  HorizontalAlignment="Left" VerticalAlignment="Top" 
   Style="{StaticResource MaterialDesignIconButton}"
   ToolTip="MaterialDesignIconButton"
   IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
                 <materialDesign:PackIcon Height="50" Width="40" Foreground="Green"
     Kind="ArrowBack" />
             </Button>
-            <Button Margin="40,40"  HorizontalAlignment="Right" VerticalAlignment="Top" 
+            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding ElementName=page}" Margin="40,40"  HorizontalAlignment="Right" VerticalAlignment="Top" 
 Style="{StaticResource MaterialDesignIconButton}"
 ToolTip="MaterialDesignIconButton"
 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
@@ -30,16 +31,16 @@ IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource 
   Kind="Close" />
             </Button>
 
-            <StackPanel  Opacity="50" VerticalAlignment="Center" Height="500" Width="400"  Background="Transparent" Margin="350,104,350,0">
+            <StackPanel    Opacity="50" VerticalAlignment="Bottom" Height="500" Width="400"  Background="Transparent" >
 
-                <PasswordBox Style="{StaticResource MaterialDesignFilledPasswordBox}"
+                <PasswordBox VerticalAlignment="Center"  Style="{StaticResource MaterialDesignFilledPasswordBox}"
                              Name="Code"
                                     FontSize="30" VerticalContentAlignment="Center"  BorderBrush="White" Foreground="Green" Padding="5" Height="80" Width="300"
                                     materialDesign:HintAssist.Hint="Code"
                                     materialDesign:HintAssist.Foreground="Green"/>
 
 
-                <Button Margin="0,20,0,0" Height="80" FontSize="30" Width="300" BorderThickness="0" Background="red" 
+                <Button  Margin="0,20,0,0" Height="80" FontSize="30" Width="300" BorderThickness="0" Background="red" 
                         Command="{Binding ConfirmationCommand}"
                         CommandParameter="{Binding ElementName=page}"
     Style="{StaticResource MaterialDesignRaisedButton}"
@@ -50,6 +51,13 @@ IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource 
  
     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
             </StackPanel>
+            <Grid   Visibility="{Binding LoadingVisibility}">
+                <Grid.Background>
+                    <ImageBrush ImageSource="\Images\Loading.png"/>
+                </Grid.Background>
+                <ProgressBar VerticalAlignment="Top" Margin="0,40" Style="{DynamicResource LoadingStyle}" Height="70" Width="700"/>
+                <materialDesign:PackIcon  Height="100" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Kind="ProgressDownload"  Foreground="Green" Margin="0,20"/>
+            </Grid>
         </Grid>
     </Border>
 </Page>

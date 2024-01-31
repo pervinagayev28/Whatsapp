@@ -40,16 +40,14 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         private readonly IUnitOfWork unitOfWork;
 
         //Privates Fields
-        private static int tempId;
-        private static DateTime? temp;
         private DispatcherTimer? timer;
         private Grid grid;
         private int currentSelectedUserId;
-        private static bool check = false;
         private User? user;
         private string selectedUserImagePath;
-
-        //statics 
+        private bool check = false;
+        private DateTime? temp;
+        private int tempId;
         private bool checkTimer { get; set; }
 
         //Private Collections
@@ -140,56 +138,74 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         private async Task ExecuteDeleteCommand(object arg)
         {
             timer?.Stop();
-            foreach (var item in ((ListView)arg)?.SelectedItems!)
+
+            while (true)
             {
-                foreach (var connect in connections!)
+                if (!checkTimer)
                 {
-                    if (connect.FromId == User.Id && connect.ToId == (item as User)?.Id)
-                        connect.SofDeleteFrom = true;
-                    else if (connect.ToId == User.Id && connect.FromId == (item as User)?.Id)
-                        connect.SoftDeleteTo = true;
+                    foreach (var item in ((ListView)arg)?.SelectedItems!)
+                    {
+                        foreach (var connect in connections!)
+                        {
+                            if (connect.FromId == User.Id && connect.ToId == (item as User)?.Id)
+                                connect.SofDeleteFrom = true;
+                            else if (connect.ToId == User.Id && connect.FromId == (item as User)?.Id)
+                                connect.SoftDeleteTo = true;
+                        }
+                    }
+                    ((ListView)arg)?.SelectedItems?.Clear();
+                    currentSelectedUserId = default;
+                    await unitOfWork.Commit();
+                    await GetUsers();
+                    break;
                 }
             }
-             ((ListView)arg)?.SelectedItems?.Clear();
-            currentSelectedUserId = default;
-            await unitOfWork.Commit();
-            await GetUsers();
             timer?.Start();
         }
         private async Task ExecuteSendMessageCommand(object obj)
         {
             timer?.Stop();
-            await unitOfWork.GetRepository<Message, int>().Add(new Message() { FromId = User.Id, message = ((TextBox)obj).Text, Date = DateTime.Now, ToId = currentSelectedUserId });
-            bool check = true;
-            foreach (var item in connections!)
+            //File.AppendAllText("fooo.txt", DateTime.Now.ToString()+"stopeed\n");
+            while (true)
             {
-                if ((item.FromId == User.Id && item.ToId == currentSelectedUserId) || (item.ToId == User.Id && item.FromId == currentSelectedUserId))
+
+                //File.AppendAllText("foo2.txt", "cycles\t");
+                if (!checkTimer)
                 {
-                    check = false;
-                    if (item.FromId == User.Id)
+                    bool check = true;
+                    foreach (var item in connections!)
                     {
-                        item.SoftDeleteTo = false;
-                        item.SofDeleteFrom = false;
+                        if ((item.FromId == User.Id && item.ToId == currentSelectedUserId) || (item.ToId == User.Id && item.FromId == currentSelectedUserId))
+                        {
+                            check = false;
+                            if (item.SofDeleteFrom)
+                                item.FromConnectedDate = DateTime.Now;
+                            if (item.SoftDeleteTo)
+                                item.ToConnectedDate = DateTime.Now;
+
+                            item.SoftDeleteTo = false;
+                            item.SofDeleteFrom = false;
+                        }
+
                     }
-                    else if (item.ToId == User.Id)
-                    {
-                        item.SoftDeleteTo = false;
-                        item.SofDeleteFrom = false;
-                    }
+                    if (check)
+                        await unitOfWork.GetRepository<UserConnection, int>().Add(new UserConnection()
+                        {
+                            FromId = User.Id,
+                            ToId = currentSelectedUserId,
+                            FromConnectedDate = DateTime.Now,
+                            ToConnectedDate = DateTime.Now
+                        });
+
+                    await unitOfWork.GetRepository<Message, int>().Add(new Message() { FromId = User.Id, message = ((TextBox)obj).Text, Date = DateTime.Now, ToId = currentSelectedUserId });
+                    await unitOfWork.Commit();
+                    await GetUsers();
+                    //File.AppendAllText("foo2.txt", "\n");
+                    break;
                 }
-
-
             }
-            if (check)
-                await unitOfWork.GetRepository<UserConnection, int>().Add(new UserConnection()
-                {
-                    FromId = User.Id,
-                    ToId = currentSelectedUserId
-                });
-
-            await unitOfWork.Commit();
-            await GetUsers();
             timer?.Start();
+            //File.AppendAllText("fooo.txt", DateTime.Now.ToString() + "start\n");
             ((TextBox)obj).Text = "";
         }
 
@@ -209,11 +225,10 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         private void ExecuteLogOutCommand(object obj)
         {
             timer.IsEnabled = false;
-            timer?.Stop();
+            //timer?.Stop();
             var page = new ViewEntry();
             page.DataContext = new ViewModelEntry();
             ((Page)obj).NavigationService.Navigate(page);
-
         }
 
         private void ExecuteGetImageCommand(object arg)
@@ -244,7 +259,10 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         private async void start(string Gmail)
         {
             //User = await context?.UsersTbs.FirstOrDefaultAsync(u => u.Gmail == Gmail)!;
-            User = await (await unitOfWork.GetRepository<User, int>().GetAll()).FirstOrDefaultAsync(u => u.Gmail == Gmail)!;
+            User = await (await unitOfWork.GetRepository<User, int>().GetAll())
+                                .Include(u => u.ConnectionFroms)
+                                .Include(u => u.ConnectionTos)
+                                .FirstOrDefaultAsync(u => u.Gmail == Gmail)!;
             await GetUsers();
             await GetLastMessages();
             connections = await (await unitOfWork.GetRepository<UserConnection, int>().GetAll()).ToListAsync();
@@ -260,7 +278,6 @@ namespace Whatsapp.ViewModels.ViewModelsPage
             timer?.Stop();
             foreach (var item in users)
             {
-                ;
                 var messages = await (await unitOfWork.GetRepository<Message, int>().GetAll())
                   .Where(message => message.From.Id == User.Id
                                  && message.To.Id == item!.Id
@@ -270,14 +287,9 @@ namespace Whatsapp.ViewModels.ViewModelsPage
                   .Include(y => y.To)
                   .OrderByDescending(m => m.Date)
                   .FirstOrDefaultAsync();
-
-
                 item!.LastMessage = messages?.message;
                 item!.LastMessageDate = messages?.Date;
-
-
             }
-
             if (temp < (users?.FirstOrDefault(u => u!.Id == currentSelectedUserId) as User)?.LastMessageDate || timer is null)
                 Users = new(Users.OrderByDescending(u => u?.LastMessageDate).ToList());
             temp = (users?.FirstOrDefault(u => u?.Id == currentSelectedUserId) as User)?.LastMessageDate;
@@ -297,12 +309,10 @@ namespace Whatsapp.ViewModels.ViewModelsPage
                     break;
                 }
             }
-            timer?.Start();
         }
 
         private async Task GetUsers()
         {
-
             timer?.Stop();
             while (true)
             {
@@ -322,17 +332,34 @@ namespace Whatsapp.ViewModels.ViewModelsPage
                     break;
                 }
             }
-            timer?.Start();
-        }
 
+        }
+        class d
+        {
+            public DateTime date { get; set; }
+        }
         public async Task TrickerDataBase()
         {
             checkTimer = true;
+            //File.AppendAllText("fooo.txt", DateTime.Now.ToString() + "began\n");
+
+            var data = await (await unitOfWork.GetRepository<UserConnection, int>().GetAll())
+                            .Where(c => c.FromId == User.Id && c.ToId == currentSelectedUserId
+                                || c.ToId == User.Id && c.FromId == currentSelectedUserId)
+                                .Select(c => new d
+                                {
+                                    date = c.FromId == User.Id ? c.FromConnectedDate : c.ToConnectedDate
+                                })
+                            .FirstOrDefaultAsync();
+
+            if (data is null)
+                data = new() { date = DateTime.Parse("12/12/2002") };
+
+
             var messages = await (await unitOfWork.GetRepository<Message, int>().GetAll())
-                  .Where(message => message.From.Id == User.Id
-                                 && message.To.Id == currentSelectedUserId
-                                 || message.To.Id == User.Id
-                                 && message.From.Id == currentSelectedUserId)
+                                .Where(message => (message.Date >= data.date) &&
+                                 (message.From.Id == User.Id && message.To.Id == currentSelectedUserId ||
+                                 message.To.Id == User.Id && message.From.Id == currentSelectedUserId))
                   .Include(x => x.From)
                   .Include(y => y.To)
                   .Select(x => new Message
@@ -367,6 +394,7 @@ namespace Whatsapp.ViewModels.ViewModelsPage
                     }
                 }
             }
+            //if (Messages.Count == 0 && messages.Count != 0)
             else
             {
 
@@ -385,7 +413,10 @@ namespace Whatsapp.ViewModels.ViewModelsPage
             await GetLastMessages();
             tempId = currentSelectedUserId;
             checkTimer = false;
+            //File.AppendAllText("fooo.txt", DateTime.Now.ToString() + "finished\n");
+
         }
+
 
     }
 }

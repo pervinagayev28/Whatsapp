@@ -431,3 +431,4 @@ C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\Screensh
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Microsoft.AspNetCore.Mvc.Abstractions.dll
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Microsoft.AspNetCore.Routing.Abstractions.dll
 C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Microsoft.Net.Http.Headers.dll
+C:\Users\user\Desktop\Whatsapp\Whatsapp\bin\Debug\net7.0-windows\Images\Loading.png

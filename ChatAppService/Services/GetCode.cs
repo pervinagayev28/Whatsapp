@@ -11,7 +11,7 @@ namespace ForecastDesign.Statics.StaticClasses.GetSmtpCode
 {
     public static class GetCode
     {
-        public static async Task<string> GmailVerify(string gmail)
+        public static async Task<string> GmailVerify(string? gmail)
         {
             //----------- SMTP ------------
 

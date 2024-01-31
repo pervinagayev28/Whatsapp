@@ -12,11 +12,12 @@ namespace ChatAppModelsLibrary.Models.Concrets
         public int Id { get; set; }
 
         public int FromId { get; set; }
-        public User From { get; set; }
+        public virtual  User From { get; set; }
 
         public int ToId { get; set; }
-        public User To { get; set; }
-
+        public virtual User To { get; set; }
+        public DateTime FromConnectedDate { get; set; }
+        public DateTime ToConnectedDate { get; set; }
         public bool SofDeleteFrom { get; set; }
         public bool SoftDeleteTo { get; set; }
     }

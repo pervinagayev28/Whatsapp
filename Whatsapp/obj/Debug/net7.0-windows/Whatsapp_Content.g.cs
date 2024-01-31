@@ -20,6 +20,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/fon.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/image.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/images.jpeg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/loading.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/myphoto.jpg")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/photo-little-brunet-boy-wear-260nw-2030792027.webp")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/screenshot%202023-12-07%20110202.png")]

@@ -6,8 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Navigation;
 using Whatsapp.Commands;
 using Whatsapp.UnitOfWorks.BaseUnitOfWorks;
 using Whatsapp.UnitOfWorks.Concrets;
@@ -20,13 +23,32 @@ namespace Whatsapp.ViewModels.ViewModelsPage
         private readonly IUnitOfWork unitOfWork;
         private List<string> gmails;
         public ICommand? SendCodeCommand { get; set; }
+        public ICommand? GoBackCommand { get; set; }
+        public ICommand? CloseCommand { get; set; }
         public ViewModelRegistration()
         {
             unitOfWork = new UnitOfWork();
             CheckGmail();
             SendCodeCommand = new Command(ExecuteSendCodeCommand, CanExecuteSendCodeCommand);
+            GoBackCommand = new Command(ExecuteGoBackCommand);
+            CloseCommand = new Command(ExecuteCloseCommand);
         }
 
+        private void ExecuteCloseCommand(object obj)
+        {
+            if (obj is Page child)
+            {
+                DependencyObject parent = VisualTreeHelper.GetParent(child);
+
+                while (parent != null && !(parent is NavigationWindow))
+                    parent = VisualTreeHelper.GetParent(parent);
+                if (parent != null)
+                    (parent as NavigationWindow)!.Close();
+            }
+        }
+
+        private void ExecuteGoBackCommand(object obj)=>
+            ((Page)obj).NavigationService.GoBack(); 
         private async void CheckGmail() =>
             gmails = await (await unitOfWork.GetRepository<User, int>().GetAll()).Select(x => x.Gmail).ToListAsync();
 

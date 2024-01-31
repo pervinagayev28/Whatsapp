@@ -10,6 +10,9 @@ using Whatsapp.Commands;
 using Whatsapp.Views.ViewPages;
 using ChatAppDatabaseLibrary.Contexts;
 using ChatAppModelsLibrary.Models;
+using System.Windows.Media;
+using System.Windows.Navigation;
+using System.Windows;
 
 namespace Whatsapp.ViewModels.ViewModelsPage
 {
@@ -17,11 +20,31 @@ namespace Whatsapp.ViewModels.ViewModelsPage
     {
         public ICommand? ConfirmCommand { get; set; }
         public string Gmail { get; }
+        public ICommand? GoBackCommand { get; set; }
+        public ICommand? CloseCommand { get; set; }
         public ViiewModelNewPassword(string gmail)
         {
             Gmail = gmail;
             ConfirmCommand = new Command(ExecuteConfirmCommand, CanExecuteConfirmCommand);
+            GoBackCommand = new Command(ExecuteGoBackCommand);
+            CloseCommand = new Command(ExecuteCloseCommand);
         }
+
+        private void ExecuteCloseCommand(object obj)
+        {
+            if (obj is Page child)
+            {
+                DependencyObject parent = VisualTreeHelper.GetParent(child);
+
+                while (parent != null && !(parent is NavigationWindow))
+                    parent = VisualTreeHelper.GetParent(parent);
+                if (parent != null)
+                    (parent as NavigationWindow)!.Close();
+            }
+        }
+
+        private void ExecuteGoBackCommand(object obj) =>
+            ((Page)obj).NavigationService.GoBack();
 
         private bool CanExecuteConfirmCommand(object obj) =>
             ((PasswordBox)((Page)obj).FindName("CodeOne")).Password ==
